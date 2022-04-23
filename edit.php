@@ -27,52 +27,73 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
         foreach($query_run as $row){
             ?>
 
-              
+                    
                         <form action="code.php" method="POST">
+
+                    <div class="form-row">
                             <input type="hidden" name="edit_id" value="<?php echo $row['id']?>">
-                        <div class="form-group">
+                        <div class="col-md-4 mb-3">
                         <label for="data_chegada">Hora de chegada</label>
                                 <input type="text" name="edit_data_chegada" value="<?php echo $row['data_chegada'] ?>" class="form-control"
                                 placeholder="Hora de chegada do veiculo" require>
                             </div>
 
 
-                            <div class="form-group">
+                            <div class="col-md-4 mb-3">
                             <label for="placa">Placa</label>
                                 <input type="text" name="edit_placa" value="<?php echo $row['placa'] ?>" class="form-control"
                                 placeholder="Informe a placa do veiculo"  required>
                             </div>
-                            <div class="form-group">
+                            <div class="col-md-4 mb-3">
                             <label for="transportadora">transportadora</label>
                                 <input type="text" name="edit_transportadora" value="<?php echo $row['transportadora'] ?>" class="form-control"
                                 placeholder="Informe a transportadora">
                             </div>
-                            <div class="form-group">
+
+                     </div>
+
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
                             <label for="ordem">Ordem de produção</label>
                                 <input type="text" name="edit_ordem" value="<?php echo $row['ordem'] ?>"
                                     class="form-control" 
                                     placeholder="Informe a numeração da ordem de carregamento" required>
                             </div>
                             
+                            <div class="col-md-4 mb-3">
                             <label for="produto">Produto</label>
                                 <input type="text" name="edit_produto" value="<?php echo $row['produto'] ?>"
                                     class="form-control" 
                                     placeholder="Informe o produto a ser carregado" required>
                             </div>
 
+                            <div class="col-md-4 mb-3">
                             <label for="especie">Especie</label>
                                 <input type="text" name="edit_especie" value="<?php echo $row['especie'] ?>"
                                     class="form-control" 
                                     placeholder="Informe a especie do carregamento" required>
                             </div>
 
-                            <div>
+                        </div>
 
+                        <div class="form-row">
+
+                            <div class="col-md-4 mb-3">
                             <label for="quantidade">Quantidade</label>
                                 <input type="text" name="edit_quantidade" value="<?php echo $row['quantidade'] ?>"
                                     class="form-control" 
                                     placeholder="Informe a quantidade de toneladas do carregamento" required>
                             </div>
+
+                            <div class="col-md-4 mb-3">
+                            <label for="quantidade">Status do carregamento</label>
+                                <input type="text" name="edit_status_carregamento" value="<?php echo $row['status_carregamento'] ?>"
+                                    class="form-control" 
+                                    placeholder="Informe o status do carregamento" required>
+                            </div>
+
+
+                        </div>
 
                             <button type="submit" name="updatebtn" class="btn btn-primary"> Editar </button>
                             <a href="indexZ.php" class="btn btn-danger"> Cancelar </a>

@@ -18,10 +18,14 @@ if(isset($_POST['btnregistrar'])){
     $produto = $_POST['produto'];
     $especie = $_POST['especie'];
     $quantidade = $_POST['quantidade'];
+    $status_carregamento = $_POST['status_carregamento'];
 
-    $query = "INSERT INTO processos (data_chegada, placa, transportadora, ordem, produto, especie, quantidade) VALUES(
+    $query = "INSERT INTO processos (data_chegada, placa, transportadora, ordem, produto, especie, quantidade, status_carregamento) VALUES(
     '".$data_chegada."','".$placa."','".$transportadora."','".$ordem."','".$produto."','".$especie."','
-    ".$quantidade."   ') ";
+    ".$quantidade." ',' ".$status_carregamento."   ') ";
+
+
+
     $query_run = mysqli_query($conection, $query);
 
     if($query_run){
@@ -45,9 +49,11 @@ if(isset($_POST['updatebtn'])){
     $produto = $_POST['edit_produto'];
     $especie = $_POST['edit_especie'];
     $quantidade = $_POST['edit_quantidade'];
+    $status_carregamento = $_POST['edit_status_carregamento'];
 
     $query = "UPDATE processos SET  data_chegada='$data_chegada', placa='$placa',
-     transportadora='$transportadora', ordem='$ordem', produto='$produto', especie='$especie', quantidade='$quantidade' WHERE id='$id' ";
+     transportadora='$transportadora', ordem='$ordem', produto='$produto', especie='$especie', quantidade='$quantidade',
+     status_carregamento='$status_carregamento' WHERE id='$id' ";
     $query_run = mysqli_query($conection, $query);
 
     if ($query_run) {

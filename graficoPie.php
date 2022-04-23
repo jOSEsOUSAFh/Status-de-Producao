@@ -3,7 +3,9 @@ include('includes/config.php');
 
 $arrayPie = [];
 
-$sql2 = "SELECT id, SUM(quantidade) AS produzidoTotal FROM processos;";
+// SELECT id,especie,status_carregamento,SUM(quantidade) AS produzidoBigBag FROM processos WHERE status_carregamento = "Carregado" AND especie = "BigBag";
+
+$sql2 = "SELECT id,especie,status_carregamento,SUM(quantidade)AS produzidoTotal FROM processos;";
 
 $execute2 = $conection->query($sql2) or die (mysqli_error($conection));
 

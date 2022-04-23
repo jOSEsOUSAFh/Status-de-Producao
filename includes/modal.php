@@ -61,12 +61,13 @@ include('includes/config.php');
     <label for="quantidade">Quantidade</label>
       <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Informe a quantidade do carregamento" required>
     </div>
-    <!-- <div class="col-md-4 mb-3">
-      <label for="ordem">Quantidade</label>
-      <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Informe a numeração da ordem de carregamento" required>
-    </div>
 
     <div class="col-md-4 mb-3">
+      <label for="ordem">Status Carregamento</label>
+      <input type="text" class="form-control" name="status_carregamento" id="status_carregamento" placeholder="Informe status atual do carregamento" required>
+    </div>
+
+    <!-- <div class="col-md-4 mb-3">
       <label for="ordem">Quantidade</label>
       <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Informe a numeração da ordem de carregamento" required>
     </div> -->
