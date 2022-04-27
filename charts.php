@@ -158,18 +158,18 @@ try{
 
 
                 <tr>
-                    <td>Total de meta programada</td>
-                    <td></td>
+                    <td>Meta a executar</td>
+                    <td id="metaProgramadaNaoExecutada"></td>
                 </tr>
 
                 <tr>
                     <td>Total de meta executada em big bag</td>
-                    <td id="Metaexecutada"></td>
+                    <td id="carregadoEmBigbag"></td>
                 </tr>
                 
                 <tr>
                     <td>Total de meta executada em granel</td>
-                    <td></td>
+                    <td id="carregadoEmGranel"></td>
                 </tr>
 
 
@@ -181,13 +181,8 @@ try{
 
                 <tr>
                     <td>Total de veiculos já carregados</td>
-                    <td></td>
+                    <td id="totalVeiculosCarregados"></td>
                 </tr>
-
-                <tr>
-                    <td>Necessidade de veiculos p/ dia para objetivo</td>
-                    <td></td>
-                </tr>    
           
         </table>
     </div>

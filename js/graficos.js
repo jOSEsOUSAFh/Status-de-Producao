@@ -191,8 +191,7 @@ const saldoPendente = totalMetaMes - totalProduzido
 
 
 ///////////////////////////Parte do grafico em tabela///////////////////////////////
-var labelProdBB = document.createTextNode(totalProduzido)
-document.getElementById('Metaexecutada').appendChild(labelProdBB)
+
 
 var labelPendente = document.createTextNode(saldoPendente)
 document.getElementById('saldoPendente').appendChild(labelPendente)
@@ -231,7 +230,61 @@ const data = {
     }
 
 
-    //////////////////////////////////////////////////////////////////////////////////
+
+    
+
+
+    ////////////////////////////////////Tabela infos//////////////////////////////////////////////
+
+    $('document').ready(function(){
+
+      $.ajax({
+          type: "POST",
+          url: "graficoTabela.php",
+          dataType: "json",
+          success: function(data){
+              var metaProgramadaNaoExecutada = [];
+              var carregadoEmBigbag = [];
+              var carregadoEmGranel = [];
+              var totalVeiculosCarregados = [];
+          
+  
+  
+              for(let i in data){
+                  metaProgramadaNaoExecutada.push(data[i].metaProgramadaNaoExecutada);
+                  carregadoEmBigbag.push(data[i].carregadoEmBigbag);
+                  carregadoEmGranel.push(data[i].carregadoEmGranel);
+                  totalVeiculosCarregados.push(data[i].totalVeiculosCarregados);
+                  
+                  
+              }
+              
+              tabelaInfo(metaProgramadaNaoExecutada,carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados)
+          }
+      }); 
+  
+  
+  })
+
+  function tabelaInfo(metaProgramadaNaoExecutada, carregadoEmBigbag, carregadoEmGranel, totalVeiculosCarregados){
+
+    var metaProgramadaNaoExecutada = document.createTextNode(metaProgramadaNaoExecutada)
+    document.getElementById('metaProgramadaNaoExecutada').appendChild(metaProgramadaNaoExecutada)
+
+    var carregadoEmBigbag = document.createTextNode(carregadoEmBigbag)
+    document.getElementById('carregadoEmBigbag').appendChild(carregadoEmBigbag)
+    
+    var carregadoEmGranel = document.createTextNode(carregadoEmGranel)
+    document.getElementById('carregadoEmGranel').appendChild(carregadoEmGranel)
+
+    var totalVeiculosCarregados = document.createTextNode(totalVeiculosCarregados)
+    document.getElementById('totalVeiculosCarregados').appendChild(totalVeiculosCarregados)
+
+    
+
+  }
+
+
 
 
     var labelMeta = document.createTextNode(programadoMes)
