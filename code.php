@@ -6,12 +6,13 @@ session_start();
 
 if(isset($_POST['btnregistrar'])){
 
-    // $dataBrasileira = $_POST['data_chegada'];
+    $dataBrasileira = $_POST['data_chegada'];
     
 
-    //  $dataAmericana = date("Y-d-m", strtotime($dataBrasileira));
+     $dataAmericana = DateTime::createFromFormat('d/m/Y', $dataBrasileira);
+     $dataformat = $dataAmericana -> format('Y-m-d');
 
-    $data_chegada = $_POST['data_chegada'];
+    // $data_chegada = $_POST['data_chegada'];
     $placa = $_POST['placa'];
     $transportadora = $_POST['transportadora'];
     $ordem = $_POST['ordem'];
@@ -19,10 +20,12 @@ if(isset($_POST['btnregistrar'])){
     $especie = $_POST['especie'];
     $quantidade = $_POST['quantidade'];
     $status_carregamento = $_POST['status_carregamento'];
+    
 
-    $query = "INSERT INTO processos (data_chegada, placa, transportadora, ordem, produto, especie, quantidade, status_carregamento) VALUES(
-    '".$data_chegada."','".$placa."','".$transportadora."','".$ordem."','".$produto."','".$especie."','
-    ".$quantidade." ',' ".$status_carregamento."   ') ";
+    $query = "INSERT INTO processos (data_chegada, placa, transportadora, ordem, produto, especie, quantidade, status_carregamento) 
+    VALUES
+    ('".$dataformat."','".$placa."','".$transportadora."','".$ordem."','".$produto."','".$especie."','
+    ".$quantidade." ','".$status_carregamento."       ')";
 
 
 
@@ -50,6 +53,7 @@ if(isset($_POST['updatebtn'])){
     $especie = $_POST['edit_especie'];
     $quantidade = $_POST['edit_quantidade'];
     $status_carregamento = $_POST['edit_status_carregamento'];
+    
 
     $query = "UPDATE processos SET  data_chegada='$data_chegada', placa='$placa',
      transportadora='$transportadora', ordem='$ordem', produto='$produto', especie='$especie', quantidade='$quantidade',

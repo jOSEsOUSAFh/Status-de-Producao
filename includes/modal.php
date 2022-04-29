@@ -50,7 +50,12 @@ include('includes/config.php');
 
     <div class="col-md-4 mb-3">
       <label for="especie">Especie</label>
-      <input type="text" class="form-control" name="especie" id="especie" placeholder="Informe a especie do carregamento" required>
+          <select class="form-control" name="especie" id="especie" placeholder="Informe a especie do carregamento" required>
+          <option value="BigBag">BigBag</option>
+          <option value="Granel">Granel</option>
+      
+      </select>
+
     </div>
 
 
@@ -64,7 +69,11 @@ include('includes/config.php');
 
     <div class="col-md-4 mb-3">
       <label for="ordem">Status Carregamento</label>
-      <input type="text" class="form-control" name="status_carregamento" id="status_carregamento" placeholder="Informe status atual do carregamento" required>
+      <select name="status_carregamento" id="status_carregamento" class="form-control">
+        <option value=" Pátio">Pátio</option>
+        <option value="Em carregamento">Em carregamento</option>
+        <option value="Carregado">Carregado</option>
+      </select>
     </div>
 
     <!-- <div class="col-md-4 mb-3">
