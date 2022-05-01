@@ -14,11 +14,12 @@ include('includes/config.php');
       </div>
       <div class="modal-body">
 
-      <form class="needs-validation" action="code.php" method="POST">
+ <form class="needs-validation" action="code.php" method="POST">
+
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="data_chegada">Hora de chegada</label>
-      <input type="text" class="form-control" name="data_chegada" id="data_chegada" placeholder="Hora de chegada do veiculo"  required>
+      <input type="date" class="form-control" name="data_chegada" id="data_chegada" placeholder="Hora de chegada do veiculo"  required>
       <div class="valid-tooltip">
         Tudo certo!
       </div>
@@ -38,6 +39,9 @@ include('includes/config.php');
     </div>
   </div>
 
+
+
+
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="ordem">Ordem de produção</label>
@@ -51,10 +55,10 @@ include('includes/config.php');
     <div class="col-md-4 mb-3">
       <label for="especie">Especie</label>
           <select class="form-control" name="especie" id="especie" placeholder="Informe a especie do carregamento" required>
+          <option value=""></option>
           <option value="BigBag">BigBag</option>
           <option value="Granel">Granel</option>
-      
-      </select>
+          </select>
 
     </div>
 
@@ -62,6 +66,7 @@ include('includes/config.php');
   </div>
 
   <div class="form-row">
+
     <div class="col-md-4 mb-3">
     <label for="quantidade">Quantidade</label>
       <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Informe a quantidade do carregamento" required>
@@ -70,17 +75,44 @@ include('includes/config.php');
     <div class="col-md-4 mb-3">
       <label for="ordem">Status Carregamento</label>
       <select name="status_carregamento" id="status_carregamento" class="form-control">
+        <option value=""></option>
         <option value=" Pátio">Pátio</option>
         <option value="Em carregamento">Em carregamento</option>
         <option value="Carregado">Carregado</option>
       </select>
     </div>
 
-    <!-- <div class="col-md-4 mb-3">
-      <label for="ordem">Quantidade</label>
-      <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Informe a numeração da ordem de carregamento" required>
-    </div> -->
+    <div class="col-md-4 mb-3">
+      <label for="cif_fob">CIF/FOB</label>
+      <select name="cif_fob" id="cif_fob" class="form-control">
+        <option value=""></option>
+        <option value="CIF">CIF</option>
+        <option value="FOB">FOB</option>
+      </select>
+    </div>
 
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="pedido">Nº Pedido</label>
+      <input type="text" class="form-control" name="pedido" id="pedido" placeholder="Numero do pedido"  required>
+      <div class="valid-tooltip">
+        Tudo certo!
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="produtor">Produtor</label>
+      <input type="text" class="form-control" name="produtor" id="produtor" placeholder="Informe o produtor destinado"  required>
+    </div>
+
+    <!-- <div class="col-md-4 mb-3">
+      <label for="transportadora">transportadora</label>
+      <div class="input-group">
+        <input type="text" class="form-control" name="transportadora" id="transportadora" placeholder="Informe a transportadora" aria-describedby="validationTooltipUsernamePrepend" required>
+      </div>
+    </div> -->
 
   </div>
 

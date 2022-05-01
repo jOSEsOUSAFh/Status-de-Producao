@@ -33,14 +33,14 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
                     <div class="form-row">
                             <input type="hidden" name="edit_id" value="<?php echo $row['id']?>">
                         <div class="col-md-4 mb-3">
-                        <label for="data_chegada">Hora de chegada</label>
-                                <input type="text" name="edit_data_chegada" value="<?php echo $row['data_chegada'] ?>" class="form-control"
+                        <label for="edit_data_chegada">Hora de chegada</label>
+                                <input type="date" name="edit_data_chegada" value="<?php echo $row['data_chegada'] ?>" class="form-control"
                                 placeholder="Hora de chegada do veiculo" require>
                             </div>
 
 
                             <div class="col-md-4 mb-3">
-                            <label for="placa">Placa</label>
+                            <label for="edit_placa">Placa</label>
                                 <input type="text" name="edit_placa" value="<?php echo $row['placa'] ?>" class="form-control"
                                 placeholder="Informe a placa do veiculo"  required>
                             </div>
@@ -54,46 +54,104 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
 
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                            <label for="ordem">Ordem de produção</label>
+                            <label for="edit_ordem">Ordem de produção</label>
                                 <input type="text" name="edit_ordem" value="<?php echo $row['ordem'] ?>"
                                     class="form-control" 
                                     placeholder="Informe a numeração da ordem de carregamento" required>
                             </div>
                             
                             <div class="col-md-4 mb-3">
-                            <label for="produto">Produto</label>
+                            <label for="edit_produto">Produto</label>
                                 <input type="text" name="edit_produto" value="<?php echo $row['produto'] ?>"
                                     class="form-control" 
                                     placeholder="Informe o produto a ser carregado" required>
                             </div>
 
                             <div class="col-md-4 mb-3">
-                            <label for="especie">Especie</label>
-                                <input type="text" name="edit_especie" value="<?php echo $row['especie'] ?>"
-                                    class="form-control" 
-                                    placeholder="Informe a especie do carregamento" required>
+                                                        
+                                <label for="edit_especie">Especie</label>
+                                <select class="form-control" name="edit_especie"  id="especie"   required>
+                                <option value="<?php echo $row['especie'] ?>"><?php echo $row['especie'] ?></option>
+                                <option value="BigBag">BigBag</option>
+                                <option value="Granel">Granel</option>
+                                </select>
+
                             </div>
+
 
                         </div>
 
                         <div class="form-row">
 
                             <div class="col-md-4 mb-3">
-                            <label for="quantidade">Quantidade</label>
+                            <label for="edit_quantidade">Quantidade</label>
                                 <input type="text" name="edit_quantidade" value="<?php echo $row['quantidade'] ?>"
                                     class="form-control" 
                                     placeholder="Informe a quantidade de toneladas do carregamento" required>
                             </div>
 
                             <div class="col-md-4 mb-3">
-                            <label for="quantidade">Status do carregamento</label>
-                                <input type="text" name="edit_status_carregamento" value="<?php echo $row['status_carregamento'] ?>"
-                                    class="form-control" 
-                                    placeholder="Informe o status do carregamento" required>
+                            <label for="edit_status_carregamento">Status do carregamento</label>
+                            <select name="edit_status_carregamento" id="edit_status_carregamento" class="form-control">
+                                <option value="<?php echo $row['status_carregamento'] ?>"><?php echo $row['status_carregamento'] ?></option>
+                                <option value=" Pátio">Pátio</option>
+                                <option value="Em carregamento">Em carregamento</option>
+                                <option value="Carregado">Carregado</option>    
+                            </select>
+
+
                             </div>
 
 
-                        </div>
+
+
+
+                            <div class="col-md-4 mb-3">
+                                                        
+                             <label for="edit_cif_fob">CIF/FOB</label>
+                                <select class="form-control" name="edit_cif_fob"  id="edit_cif_fob"  required> 
+                                    <option value="<?php echo $row['cif_fob'] ?>"><?php echo $row['cif_fob'] ?></option>
+                                    <option value="CIF">CIF</option>
+                                    <option value="FOB">FOB</option>
+                                </select>
+                            
+                            </div>
+
+                         </div>
+
+
+
+                    <div class="form-row">
+
+                        <div class="col-md-4 mb-3">
+                        <label for="edit_pedido">Pedido</label>
+                                <input type="text" name="edit_pedido" value="<?php echo $row['pedido'] ?>" class="form-control"
+                                placeholder="Nº do pedido" require>
+                            </div>
+
+
+                            <div class="col-md-4 mb-3">
+                            <label for="edit_produtor">Produtor</label>
+                                <input type="text" name="edit_produtor" id="edit_produtor" value="<?php echo $row['produtor'] ?>" class="form-control"
+                                placeholder="Informe o produtor destinado"  required>
+                            </div>
+
+                            <!-- <div class="col-md-4 mb-3">
+                            <label for="transportadora">transportadora</label>
+                                <input type="text" name="edit_transportadora" value="<?php echo $row['transportadora'] ?>" class="form-control"
+                                placeholder="Informe a transportadora">
+                            </div> -->
+
+                     </div>
+
+
+
+
+
+
+
+
+                        
 
                             <button type="submit" name="updatebtn" class="btn btn-primary"> Editar </button>
                             <a href="indexZ.php" class="btn btn-danger"> Cancelar </a>

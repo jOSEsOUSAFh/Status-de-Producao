@@ -29,6 +29,39 @@ $(function(){
 }); 
 
 
+// $(function(){
+
+//     $.ajax({
+//         type: "POST",
+//         url: "graficoTabela.php",
+//         dataType: "json",
+//         success: function(data){
+
+//             var totalVeiculosCarregados = [];
+        
+
+
+//             for(let i in data){
+//                 totalVeiculosCarregados.push(data[i].totalVeiculosCarregados);
+                
+                
+//             }
+            
+//             tabelaInfo(totalVeiculosCarregados)
+//             console.log(totalVeiculosCarregados)
+//         }
+//     }); 
+
+
+// })
+
+// function tabelaInfo( totalVeiculosCarregados){
+
+//     var totalVeiculosCarregados = document.createTextNode(totalVeiculosCarregados)
+//     document.getElementById('qtdCarrosCarregados').appendChild(totalVeiculosCarregados)
+
+//   }
+
 
 
 

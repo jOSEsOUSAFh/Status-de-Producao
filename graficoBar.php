@@ -5,7 +5,7 @@ $arrayBar = [];
 
 $sqlI = "SELECT id,data_chegada,especie,status_carregamento,SUM(quantidade) AS produzidoDia
 FROM processos WHERE data_chegada 
-BETWEEN '2022-04-01' AND '2022-04-30' 
+BETWEEN '2022-05-01' AND '2022-05-31' 
 AND status_carregamento = 'Carregado' 
 GROUP BY data_chegada";
 

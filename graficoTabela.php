@@ -15,7 +15,7 @@ SUM(CASE WHEN status_carregamento = 'Carregado' AND especie = 'Granel' THEN quan
 AS carregadoEmGranel,
 COUNT(CASE WHEN status_carregamento = 'Carregado' THEN quantidade END) 
 AS totalVeiculosCarregados
-FROM processos WHERE data_chegada BETWEEN '2022-04-01' AND '2022-04-30';";
+FROM processos WHERE data_chegada BETWEEN '2022-05-01' AND '2022-05-31';";
 
 $execute3 = $conection->query($sql3) or die (mysqli_error($conection));
 

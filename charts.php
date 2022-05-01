@@ -9,36 +9,6 @@ include('includes/config.php');
 
 
 
-<!-- $host="localhost";
-$user="root";
-$password="";
-$dbname="status_carregamento";
-
-
-$conection = mysqli_connect($host,$user,$password,$dbname);
-
-mysqli_set_charset($conection, "utf-8");
-
-
-try{
-    $sql = "SELECT * FROM processos"
-    $execute = $conection->query($sql);
-
-    if($execute->rowCont()>0){
-        while($row = $execute->fetch()){
-            $dateArray[] = $row["hora_chegada"];
-            $qtArray[] = $row["quantidade"]
-        }
-        unset($execute);
-    }else{
-        echo 'sem resultado';
-    
-}catch(PDOException $e){
-    die("error");
-} -->
-
-
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 

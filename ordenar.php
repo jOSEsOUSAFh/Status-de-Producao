@@ -17,7 +17,7 @@ mysqli_set_charset($conection, "utf-8");
 
     $arr_item = explode(",", $id);
     
-    print_r($arr_item);
+    // print_r($arr_item);
 
     $ordem =1;
 

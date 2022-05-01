@@ -1,9 +1,12 @@
 
 let datas = new Date()
+console.log(datas.getUTCDate())
+
 
  let mes = String(datas.getMonth()+1)
 
  let dia = String(datas.getDate())
+ 
 
  let qtdiaMes = () =>{
      switch(mes){
@@ -42,11 +45,13 @@ function retornaMetaDia(){
    let = programadoDia = []
 
     for(let i = 1; i <= qtdiaMes(); i++ ){
-        programadoDia.push(programadoMes / qtdiaMes())
+        programadoDia.push(Math.round(programadoMes / qtdiaMes()))
     }
+
     
     return programadoDia
 } 
+
 
 function retornaDiasDoMes(){
 
@@ -54,7 +59,7 @@ function retornaDiasDoMes(){
     for(let i = 1; i <= qtdiaMes(); i++ ){
         resultados.push(i)
     }
-    console.log(resultados)
+    // console.log(resultados)
     return resultados
 }
 
@@ -99,6 +104,8 @@ $('document').ready(function(){
 
 
 function graficoBar (datachegada, quantidade){
+
+ 
 
 
   const labels = datachegada
@@ -280,11 +287,7 @@ const data = {
     var totalVeiculosCarregados = document.createTextNode(totalVeiculosCarregados)
     document.getElementById('totalVeiculosCarregados').appendChild(totalVeiculosCarregados)
 
-    
-
   }
-
-
 
 
     var labelMeta = document.createTextNode(programadoMes)
@@ -292,7 +295,7 @@ const data = {
 
 
     var Metadia = programadoMes / qtdiaMes()
-    var labelMeta = document.createTextNode(Metadia)
+    var labelMeta = document.createTextNode(Math.round(Metadia))
     document.getElementById('MetaDiaria').appendChild(labelMeta)
     
     

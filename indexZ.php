@@ -15,9 +15,9 @@ include('includes/config.php');
 
             <!-- Main Content -->
             <div id="content">
-
+            <!-- navbar fixed-top navbar-light bg-light -->
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4  shadow">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -78,13 +78,15 @@ include('includes/config.php');
                 </nav>
                 <!-- End of Topbar -->
 
+                
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Produção</h1>
-                        <a href="relatorioPDF.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-1">
+                        <h1 class="h3 mb-3 text-gray-800">Indicadores</h1>
+                        <a href="relatorioPDF.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                             <i class="fas fa-download fa-sm text-white-50"></i>Gerar ordem</a>
                     </div>
 
@@ -99,7 +101,7 @@ include('includes/config.php');
                                         <div class="col mr-2" >
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Carros carregados(24h)</div>
-                                            <div class="h2 mb-0 font-weight-bold text-gray-800">20</div>
+                                            <div id="qtdCarrosCarregados" class="h2 mb-0 font-weight-bold text-gray-800"></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa fa-truck fa-2x text-gray-300"></i>
@@ -150,21 +152,21 @@ include('includes/config.php');
                                         <th>Data</th>
                                         <th>Placa</th>
                                         <th>Transportadora</th>
-                                        <th>Ordem</th>
+                                        <th>OC</th>
                                         <th>Produto</th>
                                         <th>Especie</th>
                                         <th>Quantidade</th>
-                                         <!-- <th>CIF/FOB</th>
-                                        <th>Pedido</th>
-                                        <th>Produtor</th> -->
                                         <th>Status Carregamento</th>
+                                        <th>CIF/FOB</th>
+                                        <th>Pedido</th>
+                                        <th>Produtor</th>
                                         <!-- <th>Data Inicio</th>
                                         <th>Hora Inicio</th>
                                         <th>Data fim</th>
                                         <th>Hora fim</th>
                                         <th>Tempo de Carregamento</th>
                                         <th>NF INTER</th>
-                                        <th>Ordem de produção</th>
+                                        <th>Ordem de carregamento</th>
                                         <th>Ticket</th>
                                         <th>NF venda</th>
                                         <th>Status viagem</th>
@@ -191,7 +193,7 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
     
     ?> 
     
-    <tr class="" id="<?php echo $retorno->id;?>">
+    <tr class="card-body" id="<?php echo $retorno->id;?>">
     <!-- <td><?php echo $retorno->idOrdem;?>ª</td> -->
     <td><?php echo $dataBrasileira ;?></td>
     <td><?php echo $retorno->placa ;?></td>
@@ -201,6 +203,9 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
     <td><?php echo $retorno->especie ;?></td>
     <td><?php echo $retorno->quantidade ;?></td>
     <td><?php echo $retorno->status_carregamento;?></td>
+    <td><?php echo $retorno->cif_fob;?></td>
+    <td><?php echo $retorno->pedido;?></td>
+    <td><?php echo $retorno->produtor;?></td>
 
 
 <td class="text-center">
