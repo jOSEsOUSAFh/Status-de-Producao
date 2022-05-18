@@ -16,31 +16,11 @@ include('includes/config.php');
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top shadow">
-
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <!-- Topbar Navbar -->
-
-                </nav>
+                <?php 
+                include('includes/topbar.php');
+                ?>
                 <!-- End of Topbar -->
+
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -48,8 +28,8 @@ include('includes/config.php');
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
 
                 </div>
@@ -62,8 +42,8 @@ include('includes/config.php');
 <div class="container-fluid">
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Graficos de produção</h1>
-<p class="mb-4"></p>
+<!-- <h1 class="h3 mb-2 text-gray-800">Graficos de produção</h1>
+<p class="mb-4"></p> -->
 
 <!-- Content Row -->
 <div class="row">
@@ -73,7 +53,7 @@ include('includes/config.php');
         <!-- Bar Chart -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Produção</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Produzido x Programado</h6>
             </div>
             <div class="card-body">
                 <div class="chart-area">
@@ -88,7 +68,7 @@ include('includes/config.php');
         <!-- Pie Chart -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Meta x Executado Mensal</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Indice alcançado da meta mensal</h6>
             </div>
             <div class="card-body">
                 <div class="chart-bar">
@@ -107,7 +87,7 @@ include('includes/config.php');
         <div class="card shadow mb-4" style="height: 30rem;">
             <!-- Card Header - Dropdown -->
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Grafico</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Status da meta mensal</h6>
             </div>
             <!-- Card Body -->
             <div class="card-body">

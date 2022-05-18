@@ -1,9 +1,9 @@
 <?php
 include('includes/config.php');
 
-$html= '<table class="table table-bordered"  width="100%" cellspacing="1">';
+$html= '<table class="table table-bordered"  style="text-align: center;" width="100%" cellspacing="1">';
 $html.= '<thead>';
-$html.= '<tr class="text-center">';
+$html.= '<tr>';
 $html.= '<td>Ordem</td>';
 $html.= '<td>Placa</td>';
 $html.= '<td>Quantidade</td>';
@@ -18,13 +18,11 @@ $html.= '</thead>';
 
 while($row_result = mysqli_fetch_assoc($execute)){
     $html.= '<tbody>';
-    
     $html.= '<tr><td>'.$row_result['idOrdem']."</td>";
     $html.= '<td>'.$row_result['placa']."</td>";
     $html.= '<td>'.$row_result['quantidade']."</td>";
     $html.= '<td>'.$row_result['produto']."</td>";
-    $html.= '<td>'.$row_result['especie']."</td></td>";
-
+    $html.= '<td>'.$row_result['especie']."</td></tr>";
     $html.= '</tbody>';
 }
 
@@ -45,6 +43,7 @@ $dompdf->loadhtml('
 
 <h1 style="text-align: center;"> Ordem de carregamento </h1>
 '.$html.'
+
 
 ');
 

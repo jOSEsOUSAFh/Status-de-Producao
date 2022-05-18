@@ -1,7 +1,7 @@
 
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion toggled " id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
@@ -15,7 +15,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="indexZ.php">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Produção</span></a>
             </li>
@@ -24,12 +24,12 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <!-- <div class="sidebar-heading">
+             <div class="sidebar-heading">
                 Interface
-            </div> -->
+            </div> 
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
+             <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -42,17 +42,13 @@
                         <a class="collapse-item" href="">Cards</a>
                     </div>
                 </div>
-            </li> -->
+            </li>  -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
 
             <!-- Divider -->
-            <!-- <hr class="sidebar-divider"> -->
+             <hr class="sidebar-divider"> 
 
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Addons
-            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -64,9 +60,9 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opções</h6>
-                        <a class="collapse-item" href="">Chat</a>
+                        <!-- <a class="collapse-item" href="">Chat</a> -->
                         <a class="collapse-item" href="">Relatorio</a>
-                        <a class="collapse-item" href="">Arquivos</a>
+                        <a class="collapse-item" href="arquivos.php">Arquivos</a>
 
                     </div>
                 </div>

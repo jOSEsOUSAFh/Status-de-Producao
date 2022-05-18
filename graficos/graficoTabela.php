@@ -1,5 +1,5 @@
 <?php 
-include('includes/config.php');
+include('../includes/config.php');
 
 
 $arrayTabela = [];
@@ -13,7 +13,7 @@ SUM(CASE WHEN status_carregamento = 'Carregado' AND especie = 'BigBag' THEN quan
 AS carregadoEmBigbag,
 SUM(CASE WHEN status_carregamento = 'Carregado' AND especie = 'Granel' THEN quantidade END) 
 AS carregadoEmGranel,
-COUNT(CASE WHEN status_carregamento = 'Carregado' THEN quantidade END) 
+COUNT(CASE WHEN status_carregamento = 'Carregado' THEN id END) 
 AS totalVeiculosCarregados
 FROM processos WHERE data_chegada BETWEEN '2022-05-01' AND '2022-05-31';";
 

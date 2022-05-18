@@ -107,12 +107,51 @@ include('includes/config.php');
       <input type="text" class="form-control" name="produtor" id="produtor" placeholder="Informe o produtor destinado"  required>
     </div>
 
-    <!-- <div class="col-md-4 mb-3">
-      <label for="transportadora">transportadora</label>
+       <div class="col-md-4 mb-3">
+      <label for="data_inicio">Data Inicio</label>
       <div class="input-group">
-        <input type="text" class="form-control" name="transportadora" id="transportadora" placeholder="Informe a transportadora" aria-describedby="validationTooltipUsernamePrepend" required>
+        <input type="date" class="form-control" name="data_inicio" id="data_inicio">
       </div>
-    </div> -->
+    </div> 
+
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="hora_inicio">Hora inicio</label>
+      <input type="time" class="form-control" name="hora_inicio" id="hora_inicio">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="data_fim">Data fim</label>
+      <input type="date" class="form-control" name="data_fim" id="data_fim" >
+    </div>
+
+       <div class="col-md-4 mb-3">
+      <label for="hora_fim">Hora fim</label>
+      <div class="input-group">
+        <input type="time" class="form-control" name="hora_fim" id="hora_fim"  aria-describedby="validationTooltipUsernamePrepend" >
+      </div>
+    </div> 
+
+  </div>
+
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="hora_inicio">NF Inter</label>
+      <input type="text" class="form-control" name="nf_inter" id="nf_inter">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="data_fim">Ticket</label>
+      <input type="text" class="form-control" name="ticket" id="ticket" >
+    </div>
+
+       <div class="col-md-4 mb-3">
+      <label for="hora_fim">NF venda</label>
+      <div class="input-group">
+        <input type="text" class="form-control" name="nf_venda" id="nf_venda"  >
+      </div>
+    </div> 
 
   </div>
 

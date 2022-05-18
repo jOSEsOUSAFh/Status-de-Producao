@@ -17,65 +17,12 @@ include('includes/config.php');
             <div id="content">
             <!-- navbar fixed-top navbar-light bg-light -->
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4  shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Pesquisar processo..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <?php 
+                include('includes/topbar.php');
+                ?>
 
 
-                        <!-- Nav Item - User Information -->
-                          <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-3 d-none d-lg-inline text-gray-600 small">Nome do usuario</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg"> 
-                             </a> 
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Perfil
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Configuração
-                                </a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Encerrar
-                                </a>
-                            </div>
-                        </li>
-
-                    </ul>
-
-
-
-
-
-
-
-
-                </nav>
                 <!-- End of Topbar -->
 
                 
@@ -94,7 +41,7 @@ include('includes/config.php');
                     <div class="row">
 
                         <!-- Card Example -->
-                         <div class="col-xl-3 col-md-6 mb-4">
+                         <!-- <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -109,7 +56,7 @@ include('includes/config.php');
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>  -->
 
                         
 
@@ -149,7 +96,7 @@ include('includes/config.php');
                                 <thead>
                                         <tr class="text-center">
                                         <!-- <th>Ordem</th> -->
-                                        <th>Data</th>
+                                        <th>Data Chegada</th>
                                         <th>Placa</th>
                                         <th>Transportadora</th>
                                         <th>OC</th>
@@ -160,15 +107,17 @@ include('includes/config.php');
                                         <th>CIF/FOB</th>
                                         <th>Pedido</th>
                                         <th>Produtor</th>
-                                        <!-- <th>Data Inicio</th>
+                                        <th>Data Inicio</th>
                                         <th>Hora Inicio</th>
                                         <th>Data fim</th>
                                         <th>Hora fim</th>
                                         <th>Tempo de Carregamento</th>
-                                        <th>NF INTER</th>
-                                        <th>Ordem de carregamento</th>
+                                       <th>NF INTER</th>
+                                       <!-- <th>NF INTER HORA ENVIO</th> -->                                       
                                         <th>Ticket</th>
                                         <th>NF venda</th>
+                                       <!--  <th>NF venda Hora recebimento</th>
+                                        <th>Tempo de recebimento</th>
                                         <th>Status viagem</th>
                                         <th>Data de Liberação</th>  -->
                                         <th>Editar</th>
@@ -184,6 +133,19 @@ include('includes/config.php');
 
 
 while($retorno = mysqli_fetch_object($execute)){ ?>
+    
+
+
+    <?php
+    $arrayHoras = [];
+    
+     array_push($arrayHoras,$retorno->hora_inicio);
+     array_push($arrayHoras,$retorno->hora_fim);
+    
+    json_encode($arrayHoras);
+    ?>
+
+
 
     <?php $dataAmericana = $retorno->data_chegada;
     
@@ -193,7 +155,7 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
     
     ?> 
     
-    <tr class="card-body" id="<?php echo $retorno->id;?>">
+    <tr class="" id="<?php echo $retorno->id;?>">
     <!-- <td><?php echo $retorno->idOrdem;?>ª</td> -->
     <td><?php echo $dataBrasileira ;?></td>
     <td><?php echo $retorno->placa ;?></td>
@@ -206,6 +168,14 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
     <td><?php echo $retorno->cif_fob;?></td>
     <td><?php echo $retorno->pedido;?></td>
     <td><?php echo $retorno->produtor;?></td>
+    <td><?php echo $retorno->data_inicio;?></td>
+    <td><?php echo $retorno->hora_inicio;?></td>
+    <td><?php echo $retorno->data_fim;?></td>
+    <td><?php echo $retorno->hora_fim;?></td>
+    <td><?php echo $retorno->tempo_carregamento;?></td>
+    <td><?php echo $retorno->nf_inter;?></td>
+    <td><?php echo $retorno->ticket;?></td>
+    <td><?php echo $retorno->nf_venda;?></td>
 
 
 <td class="text-center">
@@ -267,7 +237,7 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
 
 
 
-            
+        
 <?php 
 
 include('includes/script.php');

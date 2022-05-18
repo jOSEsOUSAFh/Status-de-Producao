@@ -44,6 +44,7 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
                                 <input type="text" name="edit_placa" value="<?php echo $row['placa'] ?>" class="form-control"
                                 placeholder="Informe a placa do veiculo"  required>
                             </div>
+
                             <div class="col-md-4 mb-3">
                             <label for="transportadora">transportadora</label>
                                 <input type="text" name="edit_transportadora" value="<?php echo $row['transportadora'] ?>" class="form-control"
@@ -136,14 +137,50 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
                                 placeholder="Informe o produtor destinado"  required>
                             </div>
 
-                            <!-- <div class="col-md-4 mb-3">
-                            <label for="transportadora">transportadora</label>
-                                <input type="text" name="edit_transportadora" value="<?php echo $row['transportadora'] ?>" class="form-control"
-                                placeholder="Informe a transportadora">
-                            </div> -->
+                            <div class="col-md-4 mb-3">
+                            <label for="data_inicio">Data de inicio</label>
+                                <input type="date" name="edit_data_inicio" value="<?php echo $row['data_inicio'] ?>" class="form-control">
+                            </div> 
 
                      </div>
 
+                     <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                        <label for="edit_data_chegada">Hora de inicio</label>
+                                <input type="time" name="edit_hora_inicio" value="<?php echo $row['hora_inicio'] ?>" class="form-control">
+                            </div>
+
+
+                            <div class="col-md-4 mb-3">
+                            <label for="edit_placa">Data do termino</label>
+                                <input type="date" name="edit_data_fim" value="<?php echo $row['data_fim'] ?>" class="form-control">
+                            </div>
+                            
+                            <div class="col-md-4 mb-3">
+                            <label for="edit_hora_fim">Hora do termino</label>
+                                <input type="time" name="edit_hora_fim" value="<?php echo $row['hora_fim'] ?>" class="form-control">
+                            </div>
+
+                     </div>
+                    
+                     <div class="form-row">
+                        <div class="col-md-4 mb-3">
+                        <label for="edit_nf_inter">NF Inter</label>
+                                <input type="text" name="edit_nf_inter" value="<?php echo $row['nf_inter'] ?>" class="form-control">
+                            </div>
+
+
+                            <div class="col-md-4 mb-3">
+                            <label for="edit_ticket">Ticket</label>
+                                <input type="text" name="edit_ticket" value="<?php echo $row['ticket'] ?>" class="form-control">
+                            </div>
+                            
+                            <div class="col-md-4 mb-3">
+                            <label for="edit_nf_venda">NF venda</label>
+                                <input type="text" name="edit_nf_venda" value="<?php echo $row['nf_venda'] ?>" class="form-control">
+                            </div>
+
+                     </div>
 
 
 
@@ -154,7 +191,7 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
                         
 
                             <button type="submit" name="updatebtn" class="btn btn-primary"> Editar </button>
-                            <a href="indexZ.php" class="btn btn-danger"> Cancelar </a>
+                            <a href="index.php" class="btn btn-danger"> Cancelar </a>
                             
 
                         </form>

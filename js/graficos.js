@@ -1,6 +1,6 @@
 
 let datas = new Date()
-console.log(datas.getUTCDate())
+
 
 
  let mes = String(datas.getMonth()+1)
@@ -75,7 +75,7 @@ $('document').ready(function(){
     
     $.ajax({
         type: "POST",
-        url: "graficoBar.php",
+        url: "graficos/graficoBar.php",
         dataType: "json",
         success: function(data){
             var quantidadeArray = [];
@@ -113,7 +113,7 @@ function graficoBar (datachegada, quantidade){
     const data = {
     labels: labels,
     datasets: [{
-        label: 'Programado',
+        label: 'Meta diaria',
         backgroundColor: 'rgb(166, 249, 247)',
         borderColor: 'rgb(255, 99, 132)',
         data: retornaMetaDia()
@@ -168,11 +168,12 @@ $('document').ready(function(){
 
     $.ajax({
         type: "POST",
-        url: "graficoPie.php",
+        url: "graficos/graficoPie.php",
         dataType: "json",
         success: function(data){
             var quantidadeProdMes = [];
         
+            
 
 
             for(let i in data){
@@ -225,7 +226,7 @@ const data = {
 
     
       const config = {
-        type: 'doughnut',
+        type: 'pie',
         data: data,
       };
     
@@ -247,7 +248,7 @@ const data = {
 
       $.ajax({
           type: "POST",
-          url: "graficoTabela.php",
+          url: "graficos/graficoTabela.php",
           dataType: "json",
           success: function(data){
               var metaProgramadaNaoExecutada = [];
