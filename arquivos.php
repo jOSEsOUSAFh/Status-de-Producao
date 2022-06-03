@@ -24,11 +24,11 @@ include('includes/config.php');
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-1">
-                        <h1 class="h3 mb-3 text-gray-800">Indicadores</h1>
-                        <a href="relatorioPDF.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                            <i class="fas fa-download fa-sm text-white-50"></i>Gerar ordem</a>
-                    </div> -->
+                     <div class="d-sm-flex align-items-center justify-content-between mb-1">
+                        <h1 class="h3 mb-3 text-gray-800">Processos Finalizados</h1>
+                        <!-- <a href="relatorioPDF.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <i class="fas fa-download fa-sm text-white-50"></i>Gerar ordem</a> -->
+                    </div> 
 
                     <!-- Content Row -->
                     <div class="row">
@@ -84,10 +84,10 @@ include('includes/config.php');
                             
                             ?>
                             
-                            <div class="table-responsive">
+                            <div class="table-responsive card shadow border-left-success">
                                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                        <tr class="text-center">
+                                        <tr class="text-center text-dark">
                                         <!-- <th>Ordem</th> -->
                                         <th>Data</th>
                                         <th>Placa</th>
@@ -124,15 +124,35 @@ include('includes/config.php');
 
 while($retorno = mysqli_fetch_object($executeCarregados)){ ?>
 
-    <?php $dataAmericana = $retorno->data_chegada;
+    <?php 
+    $dataAmericana = $retorno->data_chegada;
     
     $dataTimesTamp = strtotime($dataAmericana);
 
      $dataBrasileira = date("d/m/Y", $dataTimesTamp);
+
+     $dataInicioBr = $retorno->data_inicio;
+     $dataInicioBr = implode("/",array_reverse(explode("-",$dataInicioBr)));
+ 
+     $dataFimBR =  $retorno->data_fim;
+     $dataFimBR = implode("/",array_reverse(explode("-",$dataFimBR)));
+ 
+ 
+     $tempoCarregamento;
+     if($retorno->tempo_carregamento < 0){
+         $tempoCarregamento = "00:00:00";
+     }else{
+         $tempoCarregamento = $retorno->tempo_carregamento;
+     };
+     
+
+
+
+
     
     ?> 
     
-    <tr class="card-body" id="<?php echo $retorno->id;?>">
+    <tr class="text-center bg-transparent text-dar" id="<?php echo $retorno->id;?>">
     <!-- <td><?php echo $retorno->idOrdem;?>ª</td> -->
     <td><?php echo $dataBrasileira ;?></td>
     <td><?php echo $retorno->placa ;?></td>
@@ -145,29 +165,31 @@ while($retorno = mysqli_fetch_object($executeCarregados)){ ?>
     <td><?php echo $retorno->cif_fob;?></td>
     <td><?php echo $retorno->pedido;?></td>
     <td><?php echo $retorno->produtor;?></td>
-    <td><?php echo $retorno->data_inicio;?></td>
+    <td><?php echo $dataInicioBr;?></td>
     <td><?php echo $retorno->hora_inicio;?></td>
-    <td><?php echo $retorno->data_fim;?></td>
+    <td><?php echo $dataFimBR;?></td>
     <td><?php echo $retorno->hora_fim;?></td>
-    <td><?php echo $retorno->tempo_carregamento;?></td>
+    <td><?php echo $tempoCarregamento;?></td>
     <td><?php echo $retorno->nf_inter;?></td>
     <td><?php echo $retorno->ticket;?></td>
     <td><?php echo $retorno->nf_venda;?></td>
 
 
-<td class="text-center">
- <form action="edit.php" method="post">
-<input type="hidden" name="edit-id" value="<?php echo $retorno->id;?>">
-<button type='submit' name="edit-btn"  id='edite'  class='btn btn-success btn-sm ' >Editar</button>
-</form>
-</td>
+<td class="text-center d-sm-flex align-items-center">
 
- <td class="text-center">
-    <form action="code.php" method="POST">
-        <input type="hidden" name="delete_id" value="<?php  echo $retorno->id;  ?>">
-<button type='submit' name="btndelete" id="delete" value="excluir" class='btn btn-danger btn-sm' >Excluir</button>
-    </form>
-</td> 
+<form action="edit.php" method="post">
+<input type="hidden" name="edit-id" value="<?php echo $retorno->id;?>">
+<button type='submit' name="edit-btn"  id='edite'  class='fa fa-edit btn-sm btn-success ' ></button>
+</form>
+
+
+
+   <form action="code.php" method="POST">
+       <input type="hidden" name="delete_id" value="<?php  echo $retorno->id;  ?>">
+<button type='submit' name="btndelete" id="delete"  class='fas fa-trash btn-sm btn-danger m-2'></button>
+   </form>
+
+</td>
 
 
 </tr>

@@ -4,20 +4,36 @@
         <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion toggled " id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
+            
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="">
-                    <i class=""></i>
+                <i class="fas fa-anchor"></i>
+                    <!-- <i class=""></i> -->
                 </div>
             </a>
 
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                Dashboard Mensal
+            </div> 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
+            <!-- Nav Item - Produção -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-fw fa-table"></i>
                     <span>Produção</span></a>
+            </li>
+
+                        <!-- Nav Item - Charts -->
+            <li class="nav-item ">
+                <a class="nav-link" href="charts.php">
+                
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <!-- tachometer-alt -->
+                    <span>Graficos</span></a>
             </li>
 
             <!-- Divider -->
@@ -25,11 +41,17 @@
 
             <!-- Heading -->
              <div class="sidebar-heading">
-                Interface
+                Relatorios
             </div> 
 
+            <li class="nav-item ">
+                <a class="nav-link" href="filtrosRelatorios.php">
+                <i class="fas fa-filter"></i>
+                    <span>Filtros</span></a>
+            </li>
+
             <!-- Nav Item - Pages Collapse Menu -->
-             <!-- <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -42,7 +64,7 @@
                         <a class="collapse-item" href="">Cards</a>
                     </div>
                 </div>
-            </li>  -->
+            </li>   -->
 
             <!-- Nav Item - Utilities Collapse Menu -->
 
@@ -51,12 +73,14 @@
 
 
             <!-- Nav Item - Pages Collapse Menu -->
+            <!-- <i class="fas fa-align-justify"></i> -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pastas</span>
+                    <i class="fa fa-list-ul"></i>
+                    <span>Opções</span>
                 </a>
+                
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Opções</h6>
@@ -66,13 +90,6 @@
 
                     </div>
                 </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item ">
-                <a class="nav-link" href="charts.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Graficos</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
@@ -101,4 +118,3 @@
 
 
 
-            <!-- Logout Modal-->

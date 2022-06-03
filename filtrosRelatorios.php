@@ -27,9 +27,9 @@ include('includes/config.php');
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Grafico Mensal</h1> 
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1> 
 
-                        <div id="teste"></div>
+                        <!-- <div id="teste"></div> -->
 
                         <?php
                         
@@ -51,15 +51,30 @@ include('includes/config.php');
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-<!-- Page Heading -->
-<!-- <h1 class="h3 mb-2 text-gray-800">Graficos de produção</h1>
-<p class="mb-4"></p> -->
+<!-- Filters -->
+
+    <div class="row">
+     <div class="col-md-3">
+       <input type="date" name="data_inicio" id="data_inicio" class="form-control" />
+      </div>
+      <div class="col-md-3">
+       <input type="date" name="data_final" id="data_final" class="form-control" />
+      </div>      
+
+     <div class="col-md-2">
+      <input type="button" name="search" id="search" value="Search" class="btn btn-info" />
+     </div>
+
+    </div>
+    
+
+
 
 
 <!-- Content Row -->
-<div class="row">
+<div class="card border shadow mb-4 align-items-center " id="order_data">
 
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-9 col-lg-2">
 
         <!-- Bar Chart -->
         <div class="card shadow mb-4">
@@ -91,80 +106,9 @@ include('includes/config.php');
             </div>
         </div>
 
-    </div>
-
-    <!-- Donut Chart -->
-    <div class="col-xl-4 col-lg-5" style="width: 30rem;">
-        <div class="card shadow mb-4" style="height: 30rem;">
-            <!-- Card Header - Dropdown -->
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Status da meta mensal</h6>
-            </div>
-
-            <!-- Card Body -->
-            <div class="card-body">
-                <div class="chart-pie pt-1">
-
-                <div class="container">
-       <table class="table table-sm table-hover">
-            
-                <tr>    
-                    <td>Total de meta para expedição</td>
-                    <td id="totalMeta"></td>
-                </tr>
-
-                <tr>
-                    <td>Saldo a ser expedido</td>
-                    <td id="saldoPendente"></td>
-                </tr>
-
-
-                <tr>
-                    <td>Meta a executar</td>
-                    <td id="metaProgramadaNaoExecutada"></td>
-                </tr>
-
-                <tr>
-                    <td>Total de meta executada em big bag</td>
-                    <td id="carregadoEmBigbag"></td>
-                </tr>
-                
-                <tr>
-                    <td>Total de meta executada em granel</td>
-                    <td id="carregadoEmGranel"></td>
-                </tr>
-
-
-
-                <tr>
-                    <td>Meta diaria</td>
-                    <td id="MetaDiaria"></td>
-                </tr>
-
-                <tr>
-                    <td>Total de veiculos já carregados</td>
-                    <td id="totalVeiculosCarregados"></td>
-                </tr>
-
-                <tr>
-                    <td>Quantidade de veiculos necessarios para objetivo</td>
-                    <td id="necessidadeVeicuPdiaPobjetivo"></td>
-                </tr>
-          
-        </table>
-    </div>
-
-                </div>
-            
-            </div>
-            <hr>
-        </div>
         
+
     </div>
-
-
-
-
 
                         
                         </div>
@@ -200,4 +144,4 @@ include('includes/footer.php');
 ?>
 
 
-<script src="js/graficos.js" defer></script>
+<script src="js/filtros.js" defer></script>

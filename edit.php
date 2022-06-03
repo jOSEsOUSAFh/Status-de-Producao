@@ -17,7 +17,7 @@ include('includes/config.php');
 
         <?php 
 
-$conection = mysqli_connect("localhost","root","","status_carregamento");
+// $conection = mysqli_connect("localhost","root","","status_carregamento");
     
     if (isset($_POST['edit-btn'])) {
         $id = $_POST['edit-id'];
@@ -75,6 +75,8 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
                                 <option value="<?php echo $row['especie'] ?>"><?php echo $row['especie'] ?></option>
                                 <option value="BigBag">BigBag</option>
                                 <option value="Granel">Granel</option>
+                                <option value="Paletizado">Paletizado</option>
+                                <option value="Sacaria">Sacaria</option>
                                 </select>
 
                             </div>
@@ -191,7 +193,7 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
                         
 
                             <button type="submit" name="updatebtn" class="btn btn-primary"> Editar </button>
-                            <a href="index.php" class="btn btn-danger"> Cancelar </a>
+                            <a href="index.php" class="btn btn-danger">Cancelar</a>
                             
 
                         </form>
@@ -210,3 +212,10 @@ $conection = mysqli_connect("localhost","root","","status_carregamento");
 
 </div>
 
+<?php 
+
+include('includes/script.php');
+include('includes/footer.php');
+
+
+?>

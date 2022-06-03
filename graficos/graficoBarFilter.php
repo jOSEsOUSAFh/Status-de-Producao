@@ -2,15 +2,19 @@
  include('../includes/config.php');
  session_start();
 
+
+ $arrayBar = [];
+
+
  $dataInicial =  $_POST['data_inicio'];
  $dataFinal =  $_POST['data_final'];
  
 
 
 
-$arrayBar = [];
 
-$sqlI = "SELECT id,data_chegada,especie,status_carregamento,SUM(quantidade) AS produzidoDia
+
+$sqlI = "SELECT * ,SUM(quantidade) AS produzidoDia
 FROM processos WHERE data_fim 
 BETWEEN '$dataInicial' AND '$dataFinal'
 AND status_carregamento = 'Carregado'
@@ -25,6 +29,7 @@ while($results = mysqli_fetch_object($executeI)){
     array_push($arrayBar,$results);
     
 };
+
 
 
 

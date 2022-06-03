@@ -6,6 +6,15 @@ let datas = new Date()
  let mes = String(datas.getMonth()+1)
 
  let dia = String(datas.getDate())
+
+
+ var primeiroDiaMeS = new Date(datas.getFullYear(), datas.getMonth(),1);
+ var ultimoDiaMes = new Date(datas.getFullYear(), datas.getMonth() + 1 , 0);
+
+
+
+// console.log(primeiroDiaMeS.toLocaleString("en"))
+console.log(ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-'))
  
 
  let qtdiaMes = () =>{
@@ -71,35 +80,48 @@ function retornaDiasDoMes(){
 
 
 ////////////////////////////////////////////// GRAFICO BARRA/////////////////////////////////////////////////////////////////
+
+
+
+
 $('document').ready(function(){
+
+
+  var data_inicio = primeiroDiaMeS.toLocaleDateString("pt-BR").split('/').reverse().join('-');
+  var data_final = ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-');
+
+  $.post('graficos/graficoBar.php',{data_inicio:data_inicio,data_final:data_final},function(result){
+  
     
-    $.ajax({
-        type: "POST",
-        url: "graficos/graficoBar.php",
-        dataType: "json",
-        success: function(data){
-            var quantidadeArray = [];
-            var dataArray = [];
+
+  var data = JSON.parse(result);
+
+
+  var quantidadeArray = [];
+  var dataArray = [];
 
 
 
-            for(let i in data){
-                quantidadeArray.push(data[i].produzidoDia)
-                dataArray.push(data[i].data_chegada.split('-').reverse().join('/'))
-                
-                
-            }
+  for(let i in data){
+      quantidadeArray.push(data[i].produzidoDia)
+      dataArray.push(data[i].data_chegada.split('-').reverse().join('/'))
+  }
 
 
 
-           graficoBar(dataArray, quantidadeArray )
-
-        
-        }
-    }); 
-
+ graficoBar(dataArray, quantidadeArray )
+// console.log(data)
 
 })
+
+
+
+  })
+
+
+  
+
+
 
 
 
@@ -125,7 +147,7 @@ function graficoBar (datachegada, quantidade){
     },{
 
         label: 'Produzido',
-        backgroundColor: 'rgb(255, 99, 132)',
+        backgroundColor: 'rgb(47,79,79)',
         borderColor: 'rgb(255, 99, 132)',
         data: quantidade
 
@@ -165,30 +187,31 @@ function graficoBar (datachegada, quantidade){
 //////////////////////////////////Grafico Pizza////////////////////////////////////////////////////
 
 $('document').ready(function(){
+  var data_inicio = primeiroDiaMeS.toLocaleDateString("pt-BR").split('/').reverse().join('-');
+  var data_final = ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-');
 
-    $.ajax({
-        type: "POST",
-        url: "graficos/graficoPie.php",
-        dataType: "json",
-        success: function(data){
-            var quantidadeProdMes = [];
+
+  $.post('graficos/graficoPie.php',{data_inicio:data_inicio,data_final:data_final},function(result){
+
+    var data = JSON.parse(result);
+
+
+    var quantidadeProdMes = [];
         
             
 
 
-            for(let i in data){
-                quantidadeProdMes.push(data[i].produzidoTotal)
-                
-                
-            }
-            
-            graficoPie(quantidadeProdMes)
-        }
-    }); 
+    for(let i in data){
+        quantidadeProdMes.push(data[i].produzidoTotal)
+        
+    }
+    
+    graficoPie(quantidadeProdMes)
 
 
 })
 
+})
 
 
 function graficoPie(totalProduzido){
@@ -204,6 +227,9 @@ const saldoPendente = totalMetaMes - totalProduzido
 var labelPendente = document.createTextNode(saldoPendente)
 document.getElementById('saldoPendente').appendChild(labelPendente)
 
+var necessidadeVeicuPdiaPobjetivo = document.createTextNode((saldoPendente /50))
+document.getElementById('necessidadeVeicuPdiaPobjetivo').appendChild(necessidadeVeicuPdiaPobjetivo)
+
 
 const data = {
     labels: [
@@ -215,9 +241,9 @@ const data = {
       label: 'My First Dataset',
       data: [totalMetaMes, totalProduzido, saldoPendente],
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
+        'rgb(60,179,113)',
+        'rgb(0,206,209)',
+        'rgb(255,228,181)'
       ],
     //   hoverOffset: 4
     }]
@@ -287,6 +313,8 @@ const data = {
 
     var totalVeiculosCarregados = document.createTextNode(totalVeiculosCarregados)
     document.getElementById('totalVeiculosCarregados').appendChild(totalVeiculosCarregados)
+
+
 
   }
 

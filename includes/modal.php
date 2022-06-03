@@ -18,7 +18,7 @@ include('includes/config.php');
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="data_chegada">Hora de chegada</label>
+      <label for="data_chegada">Data de chegada</label>
       <input type="date" class="form-control" name="data_chegada" id="data_chegada" placeholder="Hora de chegada do veiculo"  required>
       <div class="valid-tooltip">
         Tudo certo!
@@ -138,7 +138,7 @@ include('includes/config.php');
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="hora_inicio">NF Inter</label>
+      <label for="hora_inicio">NF Retorno</label>
       <input type="text" class="form-control" name="nf_inter" id="nf_inter">
     </div>
     <div class="col-md-4 mb-3">

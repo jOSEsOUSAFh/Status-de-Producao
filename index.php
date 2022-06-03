@@ -41,8 +41,8 @@ include('includes/config.php');
                     <div class="row">
 
                         <!-- Card Example -->
-                         <!-- <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2" >
@@ -56,7 +56,7 @@ include('includes/config.php');
                                     </div>
                                 </div>
                             </div>
-                        </div>  -->
+                        </div>  
 
                         
 
@@ -70,8 +70,8 @@ include('includes/config.php');
 
                         <h6 class="m-0 font-weight-bold text-primary">Status de carregamento</h6>
                                                         <!-- Botão para acionar modal -->
-                            <button type="button" class="d-none d-sm-inline-block btn btn btn-primary shadow" data-toggle="modal" data-target="#CadModal">
-                            Adicinonar novo processo
+                            <button type="button" class="d-none d-sm-inline-block  btn btn-primary shadow" data-toggle="modal" data-target="#CadModal">
+                            Novo carregamento
                             </button>
 
                         </div>
@@ -91,10 +91,10 @@ include('includes/config.php');
                             
                             ?>
                             
-                            <div class="table-responsive">
+                            <div class="table-responsive card shadow border-left-success">
                                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                        <tr class="text-center">
+                                        <tr class="text-center text-dark" >
                                         <!-- <th>Ordem</th> -->
                                         <th>Data Chegada</th>
                                         <th>Placa</th>
@@ -120,8 +120,8 @@ include('includes/config.php');
                                         <th>Tempo de recebimento</th>
                                         <th>Status viagem</th>
                                         <th>Data de Liberação</th>  -->
-                                        <th>Editar</th>
-                                        <th>Excluir</th>
+                                        <th>Ações</th>
+                                        
                                         </tr>
                                         
                                     </thead>
@@ -136,26 +136,32 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
     
 
 
-    <?php
-    $arrayHoras = [];
-    
-     array_push($arrayHoras,$retorno->hora_inicio);
-     array_push($arrayHoras,$retorno->hora_fim);
-    
-    json_encode($arrayHoras);
-    ?>
-
-
-
-    <?php $dataAmericana = $retorno->data_chegada;
+    <?php 
+    $dataAmericana = $retorno->data_chegada;
     
     $dataTimesTamp = strtotime($dataAmericana);
-
      $dataBrasileira = date("d/m/Y", $dataTimesTamp);
+
+    
+    $dataInicioBr = $retorno->data_inicio;
+    $dataInicioBr = implode("/",array_reverse(explode("-",$dataInicioBr)));
+
+    $dataFimBR =  $retorno->data_fim;
+    $dataFimBR =implode("/",array_reverse(explode("-",$dataFimBR)));
+
+
+    $tempoCarregamento;
+    if($retorno->tempo_carregamento < 0){
+        $tempoCarregamento = "00:00:00";
+    }else{
+        $tempoCarregamento = $retorno->tempo_carregamento;
+    }
+    
+
     
     ?> 
     
-    <tr class="" id="<?php echo $retorno->id;?>">
+    <tr class="text-center bg-transparent text-dark" id="<?php echo $retorno->id;?>">
     <!-- <td><?php echo $retorno->idOrdem;?>ª</td> -->
     <td><?php echo $dataBrasileira ;?></td>
     <td><?php echo $retorno->placa ;?></td>
@@ -168,28 +174,30 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
     <td><?php echo $retorno->cif_fob;?></td>
     <td><?php echo $retorno->pedido;?></td>
     <td><?php echo $retorno->produtor;?></td>
-    <td><?php echo $retorno->data_inicio;?></td>
+    <td><?php echo $dataInicioBr?></td>
     <td><?php echo $retorno->hora_inicio;?></td>
-    <td><?php echo $retorno->data_fim;?></td>
+    <td><?php echo $dataFimBR?></td>
     <td><?php echo $retorno->hora_fim;?></td>
-    <td><?php echo $retorno->tempo_carregamento;?></td>
+    <td><?php echo $tempoCarregamento?></td>
     <td><?php echo $retorno->nf_inter;?></td>
     <td><?php echo $retorno->ticket;?></td>
     <td><?php echo $retorno->nf_venda;?></td>
 
 
-<td class="text-center">
+<td class="text-center d-sm-flex align-items-center">
+
  <form action="edit.php" method="post">
 <input type="hidden" name="edit-id" value="<?php echo $retorno->id;?>">
-<button type='submit' name="edit-btn"  id='edite'  class='btn btn-success btn-sm ' >Editar</button>
+<button type='submit' name="edit-btn"  id='edite'  class='fa fa-edit btn-sm btn-success ' ></button>
 </form>
-</td>
 
-<td class="text-center">
+
+
     <form action="code.php" method="POST">
         <input type="hidden" name="delete_id" value="<?php  echo $retorno->id;  ?>">
-<button type='submit' name="btndelete" id="delete" value="excluir" class='btn btn-danger btn-sm' >Excluir</button>
+<button type='submit' name="btndelete" id="delete"  class='fas fa-trash btn-sm btn-danger m-2'></button>
     </form>
+
 </td>
 
 
