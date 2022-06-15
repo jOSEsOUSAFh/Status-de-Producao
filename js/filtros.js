@@ -77,41 +77,98 @@ function retornaDiasDoMes(){
 ////////////////////////////////////////////// GRAFICO BARRA/////////////////////////////////////////////////////////////////
 
 $('#search').click(function(){
+  
   var data_inicio = $('#data_inicio').val();
   var data_final = $('#data_final').val();
+
     if(data_inicio != '' && data_final != ''){
 
       $.post('graficos/graficoBarFilter.php',{data_inicio:data_inicio,data_final:data_final},function(result){
 
         var data = JSON.parse(result);
-        var dados = [];
-        console.log(data)
+        
+
+        var quantidadeArray = [];
+        var dataArray = [];
+        
+        
 
 
         for(let i in data){
-          dados.push(data)
+          quantidadeArray.push(data[i].produzidoDia)
+          dataArray.push(data[i].data_fim.split('-').reverse().join('/'))
           
       }
-      
-    
+      graficoBar(dataArray, quantidadeArray )
+
       })
 
      
-    }
-    else{
-     alert("O filtro requer parametros");
+    }else{
+     alert("Os filtros requerem parametros");
     }
   
-
-  
-
-
-
-
-
-
- 
 
  
 
  });
+
+
+ function graficoBar (datachegada, quantidade){
+
+ 
+
+
+  const labels = datachegada
+
+    const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Meta diaria',
+        backgroundColor: 'rgb(166, 249, 247)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: retornaMetaDia()
+
+
+
+
+
+    },{
+
+        label: 'Produzido',
+        backgroundColor: 'rgb(47,79,79)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: quantidade
+
+        
+  
+
+
+        
+    }],
+    
+  };
+
+  const config = {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        yAxes: [{
+            ticks: {
+                max: 1000,
+                min: 0,
+                // stepSize: 50
+            }
+        }]
+      }
+    },
+  };
+
+  const myChart = new Chart(
+    document.getElementById('myBarChart'),
+    config
+  );
+  
+
+}

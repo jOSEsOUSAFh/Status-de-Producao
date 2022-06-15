@@ -11,10 +11,6 @@ let datas = new Date()
  var primeiroDiaMeS = new Date(datas.getFullYear(), datas.getMonth(),1);
  var ultimoDiaMes = new Date(datas.getFullYear(), datas.getMonth() + 1 , 0);
 
-
-
-// console.log(primeiroDiaMeS.toLocaleString("en"))
-console.log(ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-'))
  
 
  let qtdiaMes = () =>{
@@ -86,6 +82,8 @@ function retornaDiasDoMes(){
 
 $('document').ready(function(){
 
+  
+ 
 
   var data_inicio = primeiroDiaMeS.toLocaleDateString("pt-BR").split('/').reverse().join('-');
   var data_final = ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-');
@@ -104,7 +102,7 @@ $('document').ready(function(){
 
   for(let i in data){
       quantidadeArray.push(data[i].produzidoDia)
-      dataArray.push(data[i].data_chegada.split('-').reverse().join('/'))
+      dataArray.push(data[i].data_fim.split('-').reverse().join('/'))
   }
 
 
@@ -117,11 +115,6 @@ $('document').ready(function(){
 
 
   })
-
-
-  
-
-
 
 
 
@@ -272,6 +265,9 @@ const data = {
 
     $('document').ready(function(){
 
+  var data_inicio = primeiroDiaMeS.toLocaleDateString("pt-BR").split('/').reverse().join('-');
+  var data_final = ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-');
+
       $.ajax({
           type: "POST",
           url: "graficos/graficoTabela.php",
@@ -290,7 +286,8 @@ const data = {
                   carregadoEmGranel.push(data[i].carregadoEmGranel);
                   totalVeiculosCarregados.push(data[i].totalVeiculosCarregados);
                   
-                  
+                  // console.log(carregadoEmBigbag)
+                  // console.log(carregadoEmGranel)
               }
               
               tabelaInfo(metaProgramadaNaoExecutada,carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados)

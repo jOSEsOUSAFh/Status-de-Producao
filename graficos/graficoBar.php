@@ -10,7 +10,7 @@
 
 $arrayBar = [];
 
-$sqlI = "SELECT id,data_chegada,especie,status_carregamento,SUM(quantidade) AS produzidoDia
+$sqlI = "SELECT id,data_fim,especie,status_carregamento,SUM(quantidade) AS produzidoDia
 FROM processos WHERE data_fim 
 BETWEEN '$dataInicial' AND '$dataFinal'
 AND status_carregamento = 'Carregado'

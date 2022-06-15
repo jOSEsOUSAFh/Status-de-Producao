@@ -52,7 +52,7 @@ include('includes/config.php');
 <div class="container-fluid">
 
 <!-- Filters -->
-
+<form action="gerarExcel.php" method="POST">
     <div class="row">
      <div class="col-md-3">
        <input type="date" name="data_inicio" id="data_inicio" class="form-control" />
@@ -60,14 +60,19 @@ include('includes/config.php');
       <div class="col-md-3">
        <input type="date" name="data_final" id="data_final" class="form-control" />
       </div>      
+      
+     <div class="col-md-2">
+      <input type="button" name="search" id="search" value="Gerar Graficos" class="btn btn-info" />
+     </div>
 
      <div class="col-md-2">
-      <input type="button" name="search" id="search" value="Search" class="btn btn-info" />
+        <input type="submit" value="Gerar Excel" class="btn btn-info">
+         
      </div>
 
     </div>
     
-
+    </form>
 
 
 

@@ -10,15 +10,11 @@
  $dataFinal =  $_POST['data_final'];
  
 
-
-
-
-
 $sqlI = "SELECT * ,SUM(quantidade) AS produzidoDia
 FROM processos WHERE data_fim 
 BETWEEN '$dataInicial' AND '$dataFinal'
 AND status_carregamento = 'Carregado'
-GROUP BY data_fim";
+GROUP BY data_fim ORDER BY data_fim ASC";
 
 
 

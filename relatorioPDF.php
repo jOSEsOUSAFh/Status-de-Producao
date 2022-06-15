@@ -1,7 +1,7 @@
 <?php
 include('includes/config.php');
 
-$html= '<table class="table table-bordered"  style="text-align: center;" width="100%" cellspacing="1">';
+$html= '<table border="1"  style="text-align: center;" width="100%" cellspacing="1">';
 $html.= '<thead>';
 $html.= '<tr>';
 $html.= '<td>Ordem</td>';
