@@ -14,7 +14,7 @@ if(isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])){
 if($adm == 1){
 
     
-    require('indexadm.php');
+    require('indexadm.html');
 
 
    }elseif($adm == 0){
