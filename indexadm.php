@@ -58,7 +58,10 @@ include('includes/navbar.php');
 
                     </div>
                 </div>
-
+                            
+                <?php 
+                include('includes/modal.php');
+                ?>
                 <!-- /.container-fluid -->
                 <div class="card shadow mb-4" >
  
@@ -87,10 +90,7 @@ include('includes/navbar.php');
                             
                             ?>
 
-                            
-                            <?php 
-                            // include('includes/modal.php');
-                            ?>
+
 
                             <div class="table-responsive card shadow border-left-success">
                                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
