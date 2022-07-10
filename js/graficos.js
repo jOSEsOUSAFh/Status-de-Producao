@@ -54,6 +54,8 @@ let datas = new Date()
 
     // programadoMes = data[0].valorDaMeta;
 
+    console.log(data);
+
 
   })
 

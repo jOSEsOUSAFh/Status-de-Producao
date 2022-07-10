@@ -3,9 +3,9 @@ include('includes/header.php');
 include('includes/navbar.php');
 include('includes/config.php');
 
+
+
 ?>
-
-
 
 
         <!-- Content Wrapper -->
@@ -15,7 +15,6 @@ include('includes/config.php');
             <div id="content">
             <!-- navbar fixed-top navbar-light bg-light -->
                 <!-- Topbar -->
-
                 <?php 
                 include('includes/topbar.php');
                 ?>
