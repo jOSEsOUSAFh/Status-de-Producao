@@ -246,27 +246,21 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
 
 
 
-          <!-- Footer -->
-          <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>By &copy; José Sousa</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
+        
 
 
-</body>
+
+<?php 
+
+// include('includes/modal.php');
+// include('includes/script.php');
+include('includes/footer.php');
 
 
 
 
-
-</html>
+?>
 
 
 
