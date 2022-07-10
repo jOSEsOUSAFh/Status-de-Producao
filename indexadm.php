@@ -86,7 +86,12 @@ include('includes/navbar.php');
                             }
                             
                             ?>
+
                             
+                            <?php 
+                            // include('includes/modal.php');
+                            ?>
+
                             <div class="table-responsive card shadow border-left-success">
                                 <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
@@ -185,12 +190,7 @@ include('includes/navbar.php');
 
 <?php 
 
-include('includes/modal.php');
-
 include('includes/footer.php');
-
-
-
 
 ?>
 
