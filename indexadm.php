@@ -124,82 +124,6 @@ include('includes/navbar.php');
                                     <div>
                                     <tbody class="sortable" id="results">
 
-<?php
-
-
-
-while($retorno = mysqli_fetch_object($execute)){ ?>
-    
-
-
-    <?php 
-    $dataAmericana = $retorno->data_chegada;
-    
-    $dataTimesTamp = strtotime($dataAmericana);
-     $dataBrasileira = date("d/m/Y", $dataTimesTamp);
-
-    
-    $dataInicioBr = $retorno->data_inicio;
-    $dataInicioBr = implode("/",array_reverse(explode("-",$dataInicioBr)));
-
-    $dataFimBR =  $retorno->data_fim;
-    $dataFimBR =implode("/",array_reverse(explode("-",$dataFimBR)));
-
-
-    $tempoCarregamento;
-    if($retorno->tempo_carregamento < 0){
-        $tempoCarregamento = "00:00:00";
-    }else{
-        $tempoCarregamento = $retorno->tempo_carregamento;
-    }
-    
-
-    
-    ?> 
-    
-    <tr class="text-center bg-transparent text-dark" id="<?php echo $retorno->id;?>">
-    <!-- <td><?php echo $retorno->idOrdem;?>ª</td> -->
-    <td><?php echo $dataBrasileira ;?></td>
-    <td><?php echo $retorno->placa ;?></td>
-    <td><?php echo $retorno->transportadora ;?></td>
-    <td><?php echo $retorno->ordem ;?></td>
-    <td><?php echo $retorno->produto ;?></td>
-    <td><?php echo $retorno->especie ;?></td>
-    <td><?php echo $retorno->quantidade ;?></td>
-    <td><?php echo $retorno->status_carregamento;?></td>
-    <td><?php echo $retorno->cif_fob;?></td>
-    <td><?php echo $retorno->pedido;?></td>
-    <td><?php echo $retorno->produtor;?></td>
-    <td><?php echo $dataInicioBr?></td>
-    <td><?php echo $retorno->hora_inicio;?></td>
-    <td><?php echo $dataFimBR?></td>
-    <td><?php echo $retorno->hora_fim;?></td>
-    <td><?php echo $tempoCarregamento?></td>
-    <td><?php echo $retorno->nf_inter;?></td>
-    <td><?php echo $retorno->ticket;?></td>
-    <td><?php echo $retorno->nf_venda;?></td>
-
-
-<td class="text-center d-sm-flex align-items-center">
-
- <form action="edit.php" method="post">
-<input type="hidden" name="edit-id" value="<?php echo $retorno->id;?>">
-<button type='submit' name="edit-btn"  id='edite'  class='fa fa-edit btn-sm btn-success ' ></button>
-</form>
-
-
-
-    <form action="code.php" method="POST">
-        <input type="hidden" name="delete_id" value="<?php  echo $retorno->id;  ?>">
-<button type='submit' name="btndelete" id="delete"  class='fas fa-trash btn-sm btn-danger m-2'></button>
-    </form>
-
-</td>
-
-
-</tr>
-
-<?php  } ?>
 
                                         
 
@@ -246,27 +170,21 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
 
 
 
-          <!-- Footer -->
-          <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>By &copy; José Sousa</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
+        
 
 
-</body>
+
+<?php 
+
+// include('includes/modal.php');
+// include('includes/script.php');
+include('includes/footer.php');
 
 
 
 
-
-</html>
+?>
 
 
 
