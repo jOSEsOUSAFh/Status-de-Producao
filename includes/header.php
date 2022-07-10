@@ -28,6 +28,10 @@
 
 <body id="page-top">
 
+<?php 
+include('includes/config.php');
+?>
+
     <!-- Page Wrapper -->
     <div id="wrapper">
 
