@@ -4,7 +4,7 @@ include('includes/navbar.php');
 include('includes/config.php');
 
 
-
+include('includes/topbar.php');
 ?>
 
 
@@ -16,7 +16,7 @@ include('includes/config.php');
             <!-- navbar fixed-top navbar-light bg-light -->
                 <!-- Topbar -->
                 <?php 
-                include('includes/topbar.php');
+                // include('includes/topbar.php');
                 ?>
 
 
