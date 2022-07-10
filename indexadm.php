@@ -242,9 +242,10 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
         
 <?php 
 
-include('includes/script.php');
+
 include('includes/modal.php');
 include('includes/footer.php');
+include('includes/script.php');
 
 
 ?>
