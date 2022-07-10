@@ -15,7 +15,7 @@
             <hr class="sidebar-divider">
 
             <div class="sidebar-heading">
-                Dashboard Mensal
+                Dashboard Mensall
             </div> 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
