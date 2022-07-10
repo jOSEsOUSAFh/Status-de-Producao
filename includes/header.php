@@ -21,16 +21,16 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
  
-    
+<?php 
+include('includes/config.php');
+?>
     
 
 </head>
 
 <body id="page-top">
 
-<?php 
-include('includes/config.php');
-?>
+
 
     <!-- Page Wrapper -->
     <div id="wrapper">
