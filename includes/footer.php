@@ -15,6 +15,10 @@
 </body>
 
 
+<?php
+ include('includes/script.php'); 
+?>
+
 
 
 
