@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand navbar-light bg-gradient-info topbar mb-4 shadow">
 
 <!-- Sidebar Toggle (Topbar) -->
@@ -15,17 +16,16 @@
     </div>
 </div>
 
-
+    
     <!-- Nav Item - User Information -->
-      <li class="nav-item dropdown no-arrow">
+      <div class="nav-item dropdown no-arrow">
           
         <a class="nav-link dropdown-toggle"  id="userDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="mr-3 d-none d-lg-inline text-white small">Nome do usuario</span>
-            <img class="img-profile rounded-circle"
-                src="includes/imagens/OIP.jpeg"> 
+            <span class="mr-3 d-none d-lg-inline text-white small"><?php echo $_SESSION["usuario"][0] ?></span>
+            <img class="img-profile rounded-circle" src="includes/imagens/OIP.jpeg"> 
          </a> 
-
+        
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
             aria-labelledby="userDropdown">
@@ -38,19 +38,12 @@
                 Configuração
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+            <a class="dropdown-item" href="login/acoes/logout.php">
                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                 Encerrar
             </a>
         </div>
-    </li>
-
-</ul>
-
-
-
-
-
+      </div>
 
 
 

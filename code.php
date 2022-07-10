@@ -115,8 +115,24 @@ if (isset($_POST['btndelete'])) {
 }
 
 
+///////////////////UPDATE META////////////////
+if(isset($_POST['btnSalvar_metaMental'])){
+
+    $meta = $_POST['metaMensal'];
+
+    $query = "UPDATE metamensal SET valorDaMeta = '$meta' ";
+    $query_run = mysqli_query($conection,$query);
 
 
+    if ($query_run) {
+        // $_SESSION['success'] = "Meta foi alterada";
+        header('Location: charts.php');
+    }else{
+        $_SESSION['status'] = "FALHA AO ALTERAR META";
+        header('Location: index.php');
+    }
+
+}
 
 
 

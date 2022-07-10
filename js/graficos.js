@@ -8,8 +8,10 @@ let datas = new Date()
  let dia = String(datas.getDate())
 
 
+
  var primeiroDiaMeS = new Date(datas.getFullYear(), datas.getMonth(),1);
  var ultimoDiaMes = new Date(datas.getFullYear(), datas.getMonth() + 1 , 0);
+
 
  
 
@@ -43,35 +45,41 @@ let datas = new Date()
      }
  }
 
- programadoMes = 12000
+ $('document').ready(function(){
+  $.post('graficos/valorMetaMensal.php',function(result){
+    var data = JSON.parse(result);
+
+    
+    programadoMes.push(data[0].valorDaMeta);
+
+    // programadoMes = data[0].valorDaMeta;
+
+
+  })
+
+
+});
+
+ 
+
+ programadoMes = [];
+
+
+
+
+
 
 function retornaMetaDia(){
 
-   let = programadoDia = []
+  let = programadoDia = []
 
-    for(let i = 1; i <= qtdiaMes(); i++ ){
-        programadoDia.push(Math.round(programadoMes / qtdiaMes()))
-    }
+   for(let i = 1; i <= qtdiaMes(); i++ ){
+       programadoDia.push(Math.round(programadoMes / qtdiaMes()))
+   }
 
-    
-    return programadoDia
+   
+   return programadoDia
 } 
-
-
-function retornaDiasDoMes(){
-
-    let resultados = []
-    for(let i = 1; i <= qtdiaMes(); i++ ){
-        resultados.push(i)
-    }
-    // console.log(resultados)
-    return resultados
-}
-
-
-
-
-
 
 
 
@@ -90,7 +98,6 @@ $('document').ready(function(){
 
   $.post('graficos/graficoBar.php',{data_inicio:data_inicio,data_final:data_final},function(result){
   
-    
 
   var data = JSON.parse(result);
 
@@ -108,7 +115,7 @@ $('document').ready(function(){
 
 
  graficoBar(dataArray, quantidadeArray )
-// console.log(data)
+
 
 })
 
@@ -201,7 +208,7 @@ $('document').ready(function(){
     
     graficoPie(quantidadeProdMes)
 
-
+    
 })
 
 })
@@ -220,7 +227,7 @@ const saldoPendente = totalMetaMes - totalProduzido
 var labelPendente = document.createTextNode(saldoPendente)
 document.getElementById('saldoPendente').appendChild(labelPendente)
 
-var necessidadeVeicuPdiaPobjetivo = document.createTextNode((saldoPendente /50))
+var necessidadeVeicuPdiaPobjetivo = document.createTextNode(Math.round((saldoPendente /50) / (qtdiaMes() - dia)))
 document.getElementById('necessidadeVeicuPdiaPobjetivo').appendChild(necessidadeVeicuPdiaPobjetivo)
 
 
@@ -268,11 +275,10 @@ const data = {
   var data_inicio = primeiroDiaMeS.toLocaleDateString("pt-BR").split('/').reverse().join('-');
   var data_final = ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-');
 
-      $.ajax({
-          type: "POST",
-          url: "graficos/graficoTabela.php",
-          dataType: "json",
-          success: function(data){
+  $.post('graficos/graficoTabela.php',{data_inicio:data_inicio,data_final:data_final},function(result){
+
+    var data = JSON.parse(result);
+
               var metaProgramadaNaoExecutada = [];
               var carregadoEmBigbag = [];
               var carregadoEmGranel = [];
@@ -286,18 +292,18 @@ const data = {
                   carregadoEmGranel.push(data[i].carregadoEmGranel);
                   totalVeiculosCarregados.push(data[i].totalVeiculosCarregados);
                   
-                  // console.log(carregadoEmBigbag)
-                  // console.log(carregadoEmGranel)
+            
+                  
+
               }
               
-              tabelaInfo(metaProgramadaNaoExecutada,carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados)
-          }
-      }); 
-  
+              tabelaInfo(metaProgramadaNaoExecutada,carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados,programadoMes)
+ 
+            })
   
   })
 
-  function tabelaInfo(metaProgramadaNaoExecutada, carregadoEmBigbag, carregadoEmGranel, totalVeiculosCarregados){
+  function tabelaInfo(metaProgramadaNaoExecutada, carregadoEmBigbag, carregadoEmGranel, totalVeiculosCarregados,programadoMes){
 
     var metaProgramadaNaoExecutada = document.createTextNode(metaProgramadaNaoExecutada)
     document.getElementById('metaProgramadaNaoExecutada').appendChild(metaProgramadaNaoExecutada)
@@ -311,18 +317,22 @@ const data = {
     var totalVeiculosCarregados = document.createTextNode(totalVeiculosCarregados)
     document.getElementById('totalVeiculosCarregados').appendChild(totalVeiculosCarregados)
 
-
-
-  }
-
-
+    
     var labelMeta = document.createTextNode(programadoMes)
     document.getElementById('totalMeta').appendChild(labelMeta)
 
-
+    
     var Metadia = programadoMes / qtdiaMes()
     var labelMeta = document.createTextNode(Math.round(Metadia))
     document.getElementById('MetaDiaria').appendChild(labelMeta)
+
+
+
+  }
+  
+
+ 
+
     
     
 

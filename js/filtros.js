@@ -100,6 +100,7 @@ $('#search').click(function(){
           
       }
       graficoBar(dataArray, quantidadeArray )
+    
 
       })
 

@@ -5,10 +5,6 @@ include('includes/navbar.php');
 include('includes/config.php');
 ?>
 
-
-
-
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -29,7 +25,7 @@ include('includes/config.php');
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Grafico Mensal</h1> 
 
-                        <div id="teste"></div>
+                    
 
                         <?php
                         
@@ -45,11 +41,11 @@ include('includes/config.php');
                 </div>
 
                 <!-- /.container-fluid -->
-                <div class="card shadow mb-4" >
-                        <div class="card-body">
+                <div class="card shadow mb-4 " >
+                        <div class="card-body ">
                         
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid ">
 
 <!-- Page Heading -->
 <!-- <h1 class="h3 mb-2 text-gray-800">Graficos de produção</h1>
@@ -59,7 +55,7 @@ include('includes/config.php');
 <!-- Content Row -->
 <div class="row">
 
-    <div class="col-xl-8 col-lg-7">
+    <div class="col-xl-7 col-lg-9">
 
         <!-- Bar Chart -->
         <div class="card shadow mb-4">
@@ -69,41 +65,93 @@ include('includes/config.php');
             <div class="card-body">
                 <div class="chart-area">
 
-                     <canvas id="myBarChart"></canvas>
+                     <canvas class="card shadow mb-6" height="166vh" id="myBarChart"></canvas>
 
                 </div>
                 <hr>
             </div>
         </div>
 
+        </div>
+
         <!-- Pie Chart -->
+        <div class="col-xl-5 col-lg-12">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Indice alcançado da meta mensal</h6>
             </div>
             <div class="card-body">
-                <div class="chart-bar">
+                <!-- <div class="chart-bar"> -->
+                <!-- width="330vh" height="330vh"  -->
+                    <canvas class="card shadow mb-8" height="246vh" id="myPieChart"></canvas>
 
-                    <canvas id="myPieChart"></canvas>
-
-                </div>
+                <!-- </div> -->
                 <hr>
             </div>
         </div>
-
-    </div>
-
+        </div>
+    
+    
     <!-- Donut Chart -->
-    <div class="col-xl-4 col-lg-5" style="width: 30rem;">
-        <div class="card shadow mb-4" style="height: 30rem;">
+    <div class="col-xl-12 col-lg-9">
+        <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
-            <div class="card-header py-3">
+            <div class="card-header py-3   d-sm-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Status da meta mensal</h6>
+                <?php
+
+                    if($_SESSION["usuario"][1] == 1){
+
+                        
+                        echo '<div><button type="button" class="btnMobile  btn btn-primary btn-sm" data-toggle="modal" data-target="#modalExemplo">
+                        Alterar Meta mensal
+                      </button></div>';
+                        
+                      
+                    echo ' <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Meta mensal</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form action="code.php" method="POST">
+                                <div class="modal-body">
+
+                                <input class="form-control" name="metaMensal" id="metaMensal"  type="number">
+
+
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <input type="submit" id="btnSalvar_metaMental"  name="btnSalvar_metaMental" class="btn btn-primary" value="Salvar">
+                                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        
+                                </div>
+                                </form>
+                                </div>
+                            </div>
+                            </div>';
+
+
+
+
+                    }elseif($_SESSION["usuario"][1] == 0){
+                        
+                      }
+                // echo '<input type="text">'
+                
+                ?>
+                
             </div>
+
+            
 
             <!-- Card Body -->
             <div class="card-body">
-                <div class="chart-pie pt-1">
+            
 
                 <div class="container">
        <table class="table table-sm table-hover">
@@ -147,12 +195,12 @@ include('includes/config.php');
                 </tr>
 
                 <tr>
-                    <td>Quantidade de veiculos necessarios para objetivo</td>
+                    <td>Necessidade de veiculos diaria p/ objetivo</td>
                     <td id="necessidadeVeicuPdiaPobjetivo"></td>
                 </tr>
           
         </table>
-    </div>
+
 
                 </div>
             
@@ -200,4 +248,4 @@ include('includes/footer.php');
 ?>
 
 
-<script src="js/graficos.js" defer></script>
+<script src="js/graficos.js" ></script>
