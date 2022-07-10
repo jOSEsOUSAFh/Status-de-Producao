@@ -125,7 +125,15 @@ include('includes/navbar.php');
                                     <tbody class="sortable" id="results">
 
 
-                                        
+                     
+                                    
+
+
+
+
+
+
+
 
 
                                     </tbody>
@@ -177,8 +185,8 @@ include('includes/navbar.php');
 
 <?php 
 
-// include('includes/modal.php');
-// include('includes/script.php');
+include('includes/modal.php');
+include('includes/script.php');
 include('includes/footer.php');
 
 
