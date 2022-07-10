@@ -14,13 +14,13 @@ if(isset($_SESSION["usuario"]) && is_array($_SESSION["usuario"])){
 if($adm == 1){
 
     
-    include('indexadm.php');
+    require('indexadm.php');
 
 
    }elseif($adm == 0){
        
        
-     include('indexuser.php');
+     require('indexuser.php');
 
 
    }else{
