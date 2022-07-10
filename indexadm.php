@@ -1,7 +1,11 @@
 <?php 
 include('includes/header.php');
-// include('includes/config.php');
+// 
 include('includes/navbar.php');
+?>
+
+<?php 
+include('includes/config.php');
 ?>
 
 
@@ -243,7 +247,7 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
 <?php 
 
 
-include('includes/modal.php');
+// include('includes/modal.php');
 include('includes/footer.php');
 include('includes/script.php');
 
