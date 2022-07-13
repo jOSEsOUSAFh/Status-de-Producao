@@ -29,7 +29,7 @@
 <body id="page-top">
 
 <?php 
-include('includes/config.php');
+// include('includes/config.php');
 ?>
 
 
