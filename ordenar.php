@@ -1,8 +1,6 @@
 <?php 
-$host="localhost";
-$user="root";
-$password="";
-$dbname="status_carregamento";
+
+include('includes/config.php');
 
 
 $conection = mysqli_connect($host,$user,$password,$dbname);

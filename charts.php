@@ -1,8 +1,7 @@
 <?php 
 session_start();
 include('includes/header.php');
-include('includes/navbar.php');
-include('includes/config.php');
+include('includes/navbar.php'); 
 ?>
 
         <!-- Content Wrapper -->
@@ -240,7 +239,7 @@ include('includes/config.php');
             
 <?php 
 
-include('includes/script.php');
+
 include('includes/modal.php');
 include('includes/footer.php');
 

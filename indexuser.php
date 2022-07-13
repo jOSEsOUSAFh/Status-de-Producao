@@ -1,7 +1,6 @@
 <?php 
 include('includes/header.php');
 include('includes/navbar.php');
-include('includes/config.php');
 
 ?>
 
@@ -226,7 +225,6 @@ while($retorno = mysqli_fetch_object($execute)){ ?>
 
 <?php 
 
-include('includes/script.php');
 include('includes/modal.php');
 include('includes/footer.php');
 
