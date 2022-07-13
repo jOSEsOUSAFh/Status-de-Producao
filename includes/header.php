@@ -29,11 +29,11 @@
 <body id="page-top">
 
 <?php 
-include('includes/config.php');
-// $host="us-cdbr-east-06.cleardb.net";
-// $user="b7ec0b61a1182a";
-// $password="c16df8dd";
-// $dbname="heroku_eb23841869b8888";
+// include('includes/config.php');
+$host="us-cdbr-east-06.cleardb.net";
+$user="b7ec0b61a1182a";
+$password="c16df8dd";
+$dbname="heroku_eb23841869b8888";
 ?>
 
 
