@@ -14,7 +14,7 @@ if(isset($_POST['btnregistrar'])){
 
     $placa = $_POST['placa'];
     $transportadora = $_POST['transportadora'];
-    $ordem = $_POST['ordem'];
+    $ordem = $_POST['ordem'];                       
     $produto = $_POST['produto'];
     $especie = $_POST['especie'];
     $quantidade = $_POST['quantidade'];
@@ -29,15 +29,15 @@ if(isset($_POST['btnregistrar'])){
     $nf_inter = $_POST['nf_inter'];
     $ticket = $_POST['ticket'];
     $nf_venda = $_POST['nf_venda'];
-    
+
 
     $query = "INSERT INTO processos (data_chegada, placa, transportadora, ordem, produto,
-    especie, quantidade, status_carregamento, cif_fob, pedido, produtor, 
+    especie, quantidade, status_carregamento, cif_fob, pedido, produtor,
     data_inicio, hora_inicio, data_fim, hora_fim, nf_inter, ticket, nf_venda) 
-    VALUES
-    ('".$dataBrasileira."','".$placa."','".$transportadora."','".$ordem."','".$produto."','".$especie."','
-    ".$quantidade."','".$status_carregamento."','".$cif_fob."','".$pedido."','".$produtor."','".$data_inicio."
+    VALUES  ('".$dataBrasileira."','".$placa."','".$transportadora."','".$ordem."','".$produto."','".$especie."','".$quantidade."','".$status_carregamento."','".$cif_fob."','".$pedido."','".$produtor."','".$data_inicio."
     ','".$hora_inicio."','".$data_fim."','".$hora_fim."','".$nf_inter."','".$ticket."','".$nf_venda."    ')";
+
+    
 
 
 

@@ -8,12 +8,9 @@ let datas = new Date()
  let dia = String(datas.getDate())
 
 
-
  var primeiroDiaMeS = new Date(datas.getFullYear(), datas.getMonth(),1);
  var ultimoDiaMes = new Date(datas.getFullYear(), datas.getMonth() + 1 , 0);
 
-
- 
 
  let qtdiaMes = () =>{
      switch(mes){
@@ -45,16 +42,19 @@ let datas = new Date()
      }
  }
 
+ programadoMes = [];
+
+
  $('document').ready(function(){
   $.post('graficos/valorMetaMensal.php',function(result){
     var data = JSON.parse(result);
 
     
-    programadoMes.push(data[0].valorDaMeta);
+    // programadoMes.push(data[0].valorDaMeta);
 
-    // programadoMes = data[0].valorDaMeta;
+    programadoMes = data[0].valorDaMeta;
 
-    console.log(data);
+    // console.log(data);
 
 
   })
@@ -64,7 +64,7 @@ let datas = new Date()
 
  
 
- programadoMes = [];
+ 
 
 
 
@@ -85,7 +85,76 @@ function retornaMetaDia(){
 
 
 
-////////////////////////////////////////////// GRAFICO BARRA/////////////////////////////////////////////////////////////////
+
+
+
+
+    ////////////////////////////////////Tabela infos//////////////////////////////////////////////
+
+    $('document').ready(function(){
+
+  var data_inicio = primeiroDiaMeS.toLocaleDateString("pt-BR").split('/').reverse().join('-');
+  var data_final = ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-');
+
+  $.post('graficos/graficoTabela.php',{data_inicio:data_inicio,data_final:data_final},function(result){
+
+    var data = JSON.parse(result);
+
+              var metaProgramadaNaoExecutada = [];
+              var carregadoEmBigbag = [];
+              var carregadoEmGranel = [];
+              var totalVeiculosCarregados = [];
+          
+  
+  
+              for(let i in data){
+                  metaProgramadaNaoExecutada.push(data[i].metaProgramadaNaoExecutada);
+                  carregadoEmBigbag.push(data[i].carregadoEmBigbag);
+                  carregadoEmGranel.push(data[i].carregadoEmGranel);
+                  totalVeiculosCarregados.push(data[i].totalVeiculosCarregados);
+                  
+            
+                  
+
+              }
+              
+              tabelaInfo(metaProgramadaNaoExecutada,carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados,programadoMes)
+            })
+  
+  })
+
+  function tabelaInfo(metaProgramadaNaoExecutada, carregadoEmBigbag, carregadoEmGranel, totalVeiculosCarregados,programadoMes){
+
+    var metaProgramadaNaoExecutada = document.createTextNode(metaProgramadaNaoExecutada)
+    document.getElementById('metaProgramadaNaoExecutada').appendChild(metaProgramadaNaoExecutada)
+
+    var carregadoEmBigbag = document.createTextNode(carregadoEmBigbag)
+    document.getElementById('carregadoEmBigbag').appendChild(carregadoEmBigbag)
+    
+    var carregadoEmGranel = document.createTextNode(carregadoEmGranel)
+    document.getElementById('carregadoEmGranel').appendChild(carregadoEmGranel)
+
+    var totalVeiculosCarregados = document.createTextNode(totalVeiculosCarregados)
+    document.getElementById('totalVeiculosCarregados').appendChild(totalVeiculosCarregados)
+
+    
+    var labelMeta = document.createTextNode(programadoMes)
+    document.getElementById('totalMeta').appendChild(labelMeta)
+
+    
+    var Metadia = programadoMes / qtdiaMes()
+    var labelMeta = document.createTextNode(Math.round(Metadia))
+    document.getElementById('MetaDiaria').appendChild(labelMeta)
+
+
+
+  }
+  
+
+ 
+
+
+  ////////////////////////////////////////////// GRAFICO BARRA/////////////////////////////////////////////////////////////////
 
 
 
@@ -265,77 +334,6 @@ const data = {
       
     }
 
-
-
-    
-
-
-    ////////////////////////////////////Tabela infos//////////////////////////////////////////////
-
-    $('document').ready(function(){
-
-  var data_inicio = primeiroDiaMeS.toLocaleDateString("pt-BR").split('/').reverse().join('-');
-  var data_final = ultimoDiaMes.toLocaleDateString("pt-BR").split('/').reverse().join('-');
-
-  $.post('graficos/graficoTabela.php',{data_inicio:data_inicio,data_final:data_final},function(result){
-
-    var data = JSON.parse(result);
-
-              var metaProgramadaNaoExecutada = [];
-              var carregadoEmBigbag = [];
-              var carregadoEmGranel = [];
-              var totalVeiculosCarregados = [];
-          
-  
-  
-              for(let i in data){
-                  metaProgramadaNaoExecutada.push(data[i].metaProgramadaNaoExecutada);
-                  carregadoEmBigbag.push(data[i].carregadoEmBigbag);
-                  carregadoEmGranel.push(data[i].carregadoEmGranel);
-                  totalVeiculosCarregados.push(data[i].totalVeiculosCarregados);
-                  
-            
-                  
-
-              }
-              
-              tabelaInfo(metaProgramadaNaoExecutada,carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados,programadoMes)
- 
-            })
-  
-  })
-
-  function tabelaInfo(metaProgramadaNaoExecutada, carregadoEmBigbag, carregadoEmGranel, totalVeiculosCarregados,programadoMes){
-
-    var metaProgramadaNaoExecutada = document.createTextNode(metaProgramadaNaoExecutada)
-    document.getElementById('metaProgramadaNaoExecutada').appendChild(metaProgramadaNaoExecutada)
-
-    var carregadoEmBigbag = document.createTextNode(carregadoEmBigbag)
-    document.getElementById('carregadoEmBigbag').appendChild(carregadoEmBigbag)
-    
-    var carregadoEmGranel = document.createTextNode(carregadoEmGranel)
-    document.getElementById('carregadoEmGranel').appendChild(carregadoEmGranel)
-
-    var totalVeiculosCarregados = document.createTextNode(totalVeiculosCarregados)
-    document.getElementById('totalVeiculosCarregados').appendChild(totalVeiculosCarregados)
-
-    
-    var labelMeta = document.createTextNode(programadoMes)
-    document.getElementById('totalMeta').appendChild(labelMeta)
-
-    
-    var Metadia = programadoMes / qtdiaMes()
-    var labelMeta = document.createTextNode(Math.round(Metadia))
-    document.getElementById('MetaDiaria').appendChild(labelMeta)
-
-
-
-  }
-  
-
- 
-
-    
     
 
 

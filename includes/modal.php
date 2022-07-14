@@ -1,5 +1,5 @@
 <?php 
-include('includes/config.php');
+// include('includes/config.php');
 ?>
 
  <!-- Modal -->
@@ -68,7 +68,7 @@ include('includes/config.php');
   <div class="form-row">
 
     <div class="col-md-4 mb-3">
-    <label for="quantidade">Quantidade</label>
+    <label for="text">Quantidade</label>
       <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Informe a quantidade do carregamento" required>
     </div>
 
