@@ -50,8 +50,65 @@ include('includes/navbar.php');
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
+
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Filtrar e gerar dados
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+<form class="needs-validation"  action="gerarExcel.php" method="POST" novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom01">Data inicial</label>
+      <input type="date" name="data_inicio" id="data_inicio" class="form-control" require/>
+      <!-- <div class="valid-feedback">
+        Tudo certo!
+      </div> -->
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom02">Data final</label>
+      <input type="date" name="data_final" id="data_final" class="form-control" require/>
+      <!-- <div class="valid-feedback">
+        Tudo certo!
+      </div> -->
+    </div>      
+    <div class="col-md-4 mb-3">
+      <label for="validationCustomUsername">Produto</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+
+        </div>
+        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Produto" aria-describedby="inputGroupPrepend" required>
+        <!-- <div class="invalid-feedback">
+          Por favor, escolha um nome de usuário.
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="validationCustom03">Especie</label>
+      <input type="text" class="form-control" id="validationCustom03" placeholder="Especie" required>
+      <!-- <div class="invalid-feedback">
+        Por favor, informe uma cidade válida.
+      </div> -->
+    </div>
+
+  </div>
+
+  <!-- <button class="btn btn-primary" type="submit">Enviar</button> -->
+    <input type="button" name="search" id="search" value="Gerar Graficos" class="btn btn-primary" />
+    <input type="submit" value="Gerar Excel" class="btn btn-primary">
+        
+</form>
+
+</div>
+
+
+
 <!-- Filters -->
-<form action="gerarExcel.php" method="POST">
+<!-- <form action="gerarExcel.php" method="POST">
     <div class="row">
      <div class="col-md-3">
        <input type="date" name="data_inicio" id="data_inicio" class="form-control" />
@@ -71,7 +128,7 @@ include('includes/navbar.php');
 
     </div>
     
-    </form>
+    </form> -->
 
 
 

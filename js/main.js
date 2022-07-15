@@ -15,12 +15,13 @@ $(function(){
                  type: 'POST',
                  data: {id : cad_id_item_list},
                  success: function(data) {
-                
+                    
                  }
              });
         },
         start: function() {
-                            // console.log("start")            
+            // var ob = document.getElementById("teste");
+            // ob.classList.add("newclass");        
         },
         stop: function() {
                         // console.log("stop")

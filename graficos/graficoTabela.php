@@ -10,8 +10,6 @@ $arrayTabela = [];
 $sql3 = "SELECT 
 SUM(CASE WHEN status_carregamento = 'Carregado' THEN quantidade END)
 AS totalCarregado,
-SUM(CASE WHEN status_carregamento <> 'Carregado' THEN quantidade END)
-AS metaProgramadaNaoExecutada,
 SUM(CASE WHEN status_carregamento = 'Carregado' AND especie = 'BigBag' THEN quantidade END) 
 AS carregadoEmBigbag,
 SUM(CASE WHEN status_carregamento = 'Carregado' AND especie = 'Granel' THEN quantidade END) 

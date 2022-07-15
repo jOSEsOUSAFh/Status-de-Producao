@@ -42,7 +42,7 @@ let datas = new Date()
      }
  }
 
- programadoMes = [];
+ programadoMes = 13000
 
 
  $('document').ready(function(){
@@ -99,8 +99,6 @@ function retornaMetaDia(){
   $.post('graficos/graficoTabela.php',{data_inicio:data_inicio,data_final:data_final},function(result){
 
     var data = JSON.parse(result);
-
-              var metaProgramadaNaoExecutada = [];
               var carregadoEmBigbag = [];
               var carregadoEmGranel = [];
               var totalVeiculosCarregados = [];
@@ -108,7 +106,6 @@ function retornaMetaDia(){
   
   
               for(let i in data){
-                  metaProgramadaNaoExecutada.push(data[i].metaProgramadaNaoExecutada);
                   carregadoEmBigbag.push(data[i].carregadoEmBigbag);
                   carregadoEmGranel.push(data[i].carregadoEmGranel);
                   totalVeiculosCarregados.push(data[i].totalVeiculosCarregados);
@@ -118,15 +115,47 @@ function retornaMetaDia(){
 
               }
               
-              tabelaInfo(metaProgramadaNaoExecutada,carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados,programadoMes)
+              tabelaInfo(carregadoEmBigbag,carregadoEmGranel, totalVeiculosCarregados,programadoMes)
             })
+
+
+
+            ///////////////////////////
+
+            $.post('graficos/metaProgramadaNaoExecut.php',{data_inicio:data_inicio,data_final:data_final},function(result){
+
+              var data = JSON.parse(result);
+          
+                        var metaProgramadaNaoExecutadaa = [];
+
+                    
+            
+            
+                        for(let i in data){
+                            metaProgramadaNaoExecutadaa.push(data[i].metaProgramadaNaoExecutada);
+
+                            
+                      
+                            
+          
+                        }
+                        
+                        tabelaInfoMetaNaoExecut(metaProgramadaNaoExecutadaa)
+                      })
+
+////////////////////////
+
+
   
   })
 
-  function tabelaInfo(metaProgramadaNaoExecutada, carregadoEmBigbag, carregadoEmGranel, totalVeiculosCarregados,programadoMes){
+  function tabelaInfoMetaNaoExecut(metaProgramadaNaoExecutada){
+    var metaProgramadaNaoExecutadaa = document.createTextNode(metaProgramadaNaoExecutada)
+    document.getElementById('metaProgramadaNaoExecutada').appendChild(metaProgramadaNaoExecutadaa)
+  }
 
-    var metaProgramadaNaoExecutada = document.createTextNode(metaProgramadaNaoExecutada)
-    document.getElementById('metaProgramadaNaoExecutada').appendChild(metaProgramadaNaoExecutada)
+
+  function tabelaInfo(carregadoEmBigbag, carregadoEmGranel, totalVeiculosCarregados,programadoMes){
 
     var carregadoEmBigbag = document.createTextNode(carregadoEmBigbag)
     document.getElementById('carregadoEmBigbag').appendChild(carregadoEmBigbag)

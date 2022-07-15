@@ -16,7 +16,6 @@ $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Ocorreu um erro de conexão: {$erro->getMessage()}";
     $conexao = null;
 }
-// $conection = mysqli_connect($host,$user,$password,$dbname);
 
 
 ?>
