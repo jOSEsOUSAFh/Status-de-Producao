@@ -8,9 +8,9 @@ $dataFinal =  $_POST['data_final'];
 $arrayTabela = [];
 
 $sql3 = "SELECT 
-SUM(CASE WHEN status_carregamento = 'Carregado' THEN quantidade END) 
-AS totalCarregado,  
-SUM(CASE WHEN status_carregamento <> 'Carregado' THEN quantidade END) 
+SUM(CASE WHEN status_carregamento = 'Carregado' THEN quantidade END)
+AS totalCarregado,
+SUM(CASE WHEN status_carregamento <> 'Carregado' THEN quantidade END)
 AS metaProgramadaNaoExecutada,
 SUM(CASE WHEN status_carregamento = 'Carregado' AND especie = 'BigBag' THEN quantidade END) 
 AS carregadoEmBigbag,
