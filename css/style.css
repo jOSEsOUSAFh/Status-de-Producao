@@ -2,13 +2,11 @@
 @media (max-width:480px) {
     
 
-    .btnMobile{
-        margin: auto;
-    }
 
 
-    .btnMobileMenu{
+
+    .fa-bars{
         color: aliceblue;
-        background-color: aliceblue;
+
     }
 }
