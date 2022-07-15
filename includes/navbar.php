@@ -8,14 +8,14 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="">
                 <i class="fas fa-anchor"></i>
-                    <!-- <i class=""></i> -->
+                
                 </div>
             </a>
 
             <hr class="sidebar-divider">
 
             <div class="sidebar-heading">
-                Dashboard Mensall
+                Dashboard Mensal
             </div> 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
